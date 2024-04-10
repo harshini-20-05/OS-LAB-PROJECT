@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+
+<head>
+  <style>
+    .button {
+      border-radius: 8px;
+      background-color: #333456;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    
+    .button:hover span {
+      padding-right: 25px;
+    }
+    
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+    
+    .btn-row {
+        margin-top: 50px;
+        animation-name: FadeOut;
+        animation-duration: 5s;
+    }
+    
+    @keyframes FadeOut {
+      0% {
+        /* position: absolute; */
+        opacity: 0;
+      }
+    
+      75% {
+        /* position: absolute; */
+        opacity: 1;
+      }
+    
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    .heading {
+      font-size: 60px;
+      text-align: center;
+      margin-top: 50px;
+      opacity: 1;
+      animation-name: FadeOut;
+      animation-duration: 5s;
+      color: #222831;
+    }
+    
+    .choose {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 90px;
+      opacity: 1;
+      animation-name: FadeOut;
+      animation-duration: 5s;
+      color: rgb(133, 133, 133);
+    }
+    
+    </style>
+    
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="../Intro/css/bootswatch.css" />
+
+  <!-- JavaScript Files -->
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/typeit.js"></script>
+  <script src="js/MVT.js"></script>
+  <script src="js/typed.js"></script>
+  <title>MVT-2</title>
+</head>
+
+<body>
+  <nav style="border-radius:0%" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <nav  class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+        </ul>
+        <button type="button" class="btn btn-outline-success btn-lg btn-radius " 
+      onclick="window.location.href = 'index.html';" style="color: rgb(15, 2, 2);"> 
+        Back to Home
+        </button>
+        </div>
+    </div>
+    </nav>
+  <br>
+  <div class="jumbotron" style="padding: 48px;">
+    <h1 style="color:black" class="display-3"><strong>MVT</strong></h1>
+    <hr class="my-4">
+    <p style="color:#6E6A66;">First, select an <em>allocation strategy</em>. Then, <em>add processes</em> one by one. All the changes will be relected in the <em>output table. </em>. If allocation status is
+      <strong>true</strong>, then the process resides in main memory. If it is <strong>false</strong>, the process could not be allocated memory. A <strong>tick mark</strong> indicates a process that has freed its space (i.e it does not reside in
+      memory anymore).</p>
+      <p style="color:#6E6A66;">To free a process, click on that process in the <em>main memory diagram.</em></p>
+
+
+   </div>
+  
+ </div>
+ <div class="container-fluid">
+  <div id="page-heading">
+      <h1>MVT <br> </h1>
+  </div>
+  <div id="selection-form">
+      <button type="button" id="first-fit-select" class="btn btn-default">First-Fit</button>
+      <button type="button" id="best-fit-select" class="btn btn-default">Best-Fit</button>
+      <button type="button" id="worst-fit-select" class="btn btn-default">Worst-Fit</button>
+  </div>
+
+  <div id="demo-box" style="padding: 50px;">
+    <div class="col-sm-6" id="left-box">
+      <div class="col-sm-6">
+        <br>
+        <h4>Main Memory</h4>
+        <div id="block-0">
+          <div id="block--1"> </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <br>
+        <button class="btn" id="add-process-button" style="margin-top: 28px; font-size:15px">Add Process</button>
+      </div>
+    </div>
+    <div class="col-sm-6" id="right-box" style="padding: 30px;">
+      <br>
+      <h3 style="font-size:25px">Output Table</h3>
+      <br>
+      <table class="table table-striped" id="output-table">
+        <thead style="background-color: #99A3A4;">
+          <tr>
+            <th style="font-size:20px">Process No.</th>
+            <th style="font-size:20px">Process Size</th>
+            <th style="font-size:20px">Allocation Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  </div>
+
+</body>
+
+</html>

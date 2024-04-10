@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+
+<head>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="../Intro/css/bootswatch.css" />
+
+  <!-- JavaScript Files -->
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/typeit.js"></script>
+  <script src="js/MVT.js"></script>
+  <script src="js/typed.js"></script>
+  <title>MVT-2</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="../os_sim.html">OS simulator</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="wiki.html">Wiki</a></li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <div class="jumbotron" style="padding: 48px;">
+    <h1 style="color:black" class="display-3"><strong>MVT</strong></h1>
+    <hr class="my-4">
+    <p style="color:#6E6A66;">First, select an <em>allocation strategy</em>. Then, <em>add processes</em> one by one. All the changes will be relected in the <em>output table. </em>. If allocation status is
+      <strong>true</strong>, then the process resides in main memory. If it is <strong>false</strong>, the process could not be allocated memory. A <strong>tick mark</strong> indicates a process that has freed its space (i.e it does not reside in
+      memory anymore).</p>
+      <p style="color:#6E6A66;">To free a process, click on that process in the <em>main memory diagram.</em></p>
+
+
+   </div>
+  
+ </div>
+ <div class="container-fluid">
+  <div id="page-heading">
+      <h1>MVT <br> </h1>
+  </div>
+  <div id="selection-form">
+      <button type="button" id="first-fit-select" class="btn btn-default">First-Fit</button>
+      <button type="button" id="best-fit-select" class="btn btn-default">Best-Fit</button>
+      <button type="button" id="worst-fit-select" class="btn btn-default">Worst-Fit</button>
+  </div>
+
+  <div id="demo-box" style="padding: 50px;">
+    <div class="col-sm-6" id="left-box">
+      <div class="col-sm-6">
+        <br>
+        <h4>Main Memory</h4>
+        <div id="block-0">
+          <div id="block--1"> </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <br>
+        <button class="btn" id="add-process-button" style="margin-top: 28px; font-size:15px">Add Process</button>
+      </div>
+    </div>
+    <div class="col-sm-6" id="right-box" style="padding: 30px;">
+      <br>
+      <h3 style="font-size:25px">Output Table</h3>
+      <br>
+      <table class="table table-striped" id="output-table">
+        <thead style="background-color: #99A3A4;">
+          <tr>
+            <th style="font-size:20px">Process No.</th>
+            <th style="font-size:20px">Process Size</th>
+            <th style="font-size:20px">Allocation Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  </div>
+
+</body>
+
+</html>

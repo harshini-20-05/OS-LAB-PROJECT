@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Operating System</title>
+<style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+    }
+    
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    
+    #myBtn:hover {
+      background-color: #555;
+    }
+    </style>
+
+</head>
+<body>
+      
+  <button onclick="topFunction()" id="myBtn" title="Go to top" onclick=topFunction()">Back to Top</button>
+ 
+
+      <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 class="title-font sm:text-6xl text-5xl mb-4 font-medium text-gray-900">Operating System<br>CS255
+            </h1>
+        
+            <div class="flex justify-center">
+              <a href="/features.html">  
+          
+              </a>  
+            </div>
+          </div>
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <img class="object-cover object-center rounded" alt="hero" src="https://www.sitesbay.com/os/images/what-is-operating-system.jpg">
+          </div>
+        </div>
+        <button class="flex mx-auto mt-16 text-black bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2>Scroll Down to Explore</h2></button>
+      </section>
+      <br><br><br><br><br><br>
+      <div class="flex flex-col text-center w-full mb-12" style="background-color: rgb(222, 228, 228); padding: 100px;">
+        <h1 class="sm:text-6xl text-2xl font-medium title-font mb-4 text-gray-900">TOPICS</h1>
+      </div>
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/what-is-process-synchronization-in-operating-system-banner.png">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Process Synchronization</h2>
+              <p class="leading-relaxed text-base"></p>
+              <a href="Syncronization/index.html">
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+
+            </div>
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://www.educative.io/cdn-cgi/image/f=auto,fit=contain,w=600/api/page/4576367932342272/image/download/4586717729783808">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Memory Management</h2>
+              <p class="leading-relaxed text-base"></p>
+              <a href="memory/index.html">
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://i.ytimg.com/vi/oRgX6ixIipU/maxresdefault.jpg">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Disk Scheduling</h2>
+
+              <p class="leading-relaxed text-base"></p>
+              <a href="Disk-Scheduling-Algorithms/Simulate.html">
+
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://uploads-eu-west-1.insided.com/thinkwise-en/attachment/dbb3825e-d700-4a88-abff-d2f3999fc355_thumb.png">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Deadlocks</h2>
+              <p class="leading-relaxed text-base"></p>
+              <a href="Deadlock/index.html">
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/process-scheduling-algorithms-in-the-operating-system-banner.png">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Process Scheduling</h2>
+              <p class="leading-relaxed text-base"></p>
+              <a href="Scheduling/index.html">
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://media.geeksforgeeks.org/wp-content/uploads/20190608174704/multilevel.png">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Single Level Paging</h2>
+              <p class="leading-relaxed text-base"></p>
+              <a href="OS-final/paging.html">
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+
+
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://www.tech-faq.com/wp-content/uploads/2010/01/file-allocation-table-fat-file-systems.jpg">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">File Allocation</h2>
+
+              <p class="leading-relaxed text-base"></p>
+              <a href="file-allocation/index_page.html">
+
+              <p class="leading-relaxed text-base"></p>
+              <a href="File/file-allocation.html">
+
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+            <div class="sm:w-1/2 mb-10 px-4">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="https://s3.ap-south-1.amazonaws.com/afteracademy-server-uploads/what-are-paging-and-segmentation-banner-0937bce6986ecab2.png">
+              </div>
+              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Non-Contiguous Memory Management</h2>
+
+              <p class="leading-relaxed text-base"></p>
+              <a href="Page-Replacement/page-replacement.html">
+
+              <p class="leading-relaxed text-base"></p>
+
+                <button class="flex mx-auto mt-6 text-white bg-yellow-500 border-0 py-2 px-5 focus:outline-none hover:bg-yellow-600 rounded" style="border-radius: 20px; background-color: rgb(222, 228, 228);"><h2 style="color: black; font-size: large; font-weight: bold;">Simulate</h2></button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="flex flex-col text-center w-full mb-12" style="background-color: rgb(222, 228, 228); padding: 30px;">
+        <h1 class="sm:text-5xl text-2xl font-medium title-font mb-4 text-gray-900">Our Team</h1>
+      </div>
+
+      <section class="text-gray-600 body-font" id="contact">
+        <div class="container px-5 py-24 mx-auto">
+          
+          <div class="flex flex-wrap -m-2">
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Samyak Sanjay Sand</h2>
+                  <p class="text-gray-500">201CS251</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Sana Azmiya</h2>
+                  <p class="text-gray-500">201CS252</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Sankpal Tejas Ajitkumar</h2>
+                  <p class="text-gray-500">201CS253</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Sathvik Hebbar</h2>
+                  <p class="text-gray-500">201CS254</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Shalini C</h2>
+                  <p class="text-gray-500">201CS255</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Sharan S Vakkund</h2>
+                  <p class="text-gray-500">201CS256</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  
+                  <h2 class="text-gray-900 title-font font-medium">Shashank S M</h2>
+                  <p class="text-gray-500">201CS257</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Shilwant Roy</h2>
+                  <p class="text-gray-500">201CS258</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Siddharth Iyer Srinivasan</h2>
+                  <p class="text-gray-500">201CS259</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+              <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png">
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 title-font font-medium">Syed Abdul Gafoor</h2>
+                  <p class="text-gray-500">201CS260</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    
+    <script>
+      var mybutton = document.getElementById("myBtn");
+      
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+      
+    </section>
+    <br><br><br><br><br>
+</body>
+</html>

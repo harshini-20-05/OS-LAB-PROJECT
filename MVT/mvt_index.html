@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MVT-1</title>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="../Intro/css/bootswatch.css" />
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/typeit.js"></script>
+  <script src="js/MVT.js"></script>
+  <script src="js/typed.js"></script>
+</head>
+
+<body>
+  
+  <br>
+  <div class="container">
+    <div class="jumbotron" style="margin-top: 100px">
+
+      
+      <h1 class="display-3">MVT</h1>
+      <p class="lead">Multiprogramming with Variable Tasks</p>
+      <hr class="my-4">
+      <p>In the MVT scheme, the OS keeps track of which parts of memory are available and which are occupied. Initially, all memory is available for user processes and is considered one large block of available memory, a hole. Eventually, as the
+        processes start entering and leaving the memory,there will be a set of holes of various sizes.</p>
+    </div>
+    <div id="data-input-content-1">
+      <h2 style="margin-left:30px;"> Enter the following details: </h2> </br>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label style="margin-left:30px; font-size:20px;" class="control-label col-sm-2" for="memorySize"> Total Memory: </label>
+          <div class="col-sm-4">
+            <input style="margin-left:30px;" type="number" class="form-control" id="memory" placeholder="Enter total memory size in bytes" required min="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button style="margin-left:130px;" id="input-memory-submit" value="next" class="btn btn-secondary" align="center">Next</button>
+        </div>
+      </form>
+    </div>
+    
+    
+    
+
+</body>
+
+</html>

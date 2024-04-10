@@ -1,0 +1,470 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://fonts.cdnfonts.com/css/caladea" rel="stylesheet">
+
+<style>
+    /* body{
+				font-family: "courier new", Times, serif;	
+				background-color: #e0e0e0;
+			} */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    body {
+        font-family: 'Caladea', sans-serif !important;
+    }
+
+    .green {
+        background-color: #A6ECA8 !important;
+    }
+
+    .button1 {
+        border-radius: 4px;
+        background-color: #303030;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button1 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button1 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button1:hover span {
+
+        padding-right: 25px;
+    }
+
+    .button1:hover {
+        background: linear-gradient(to right, #335a4c 50%, #335a4c 100%);
+    }
+
+    .button1:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+
+    /*=====2=========================== style 2 ========================================*/
+    .button2 {
+        position: relative;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        -webkit-transition-duration: 0.2s;
+        /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .button2:after {
+        content: "";
+        background: #90EE90;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.9s
+    }
+
+    .button2:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+        background-color: green;
+    }
+
+    .back {
+        background-color: green;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .but1 {
+
+        position: absolute;
+        margin-left: 12%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but2 {
+
+        position: absolute;
+        margin-left: 29%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but3 {
+        position: absolute;
+        margin-left: 46%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+
+    .but4 {
+
+        position: absolute;
+        margin-left: 63%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but5 {
+
+        position: absolute;
+        margin-left: 80%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    ul,
+    ol,
+    p {
+        font-size: larger;
+    }
+</style>
+
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top mb-5">
+        <div class="container-fluid d-flex flex-column">
+            <h1 class="mx-auto text-light">Page Replacement Algorithms </h1>
+            <div class="d-flex justify-content-between w-100">
+                <a class=" btn btn-outline-success btn-radius " href="./page-replacement.html"
+                    style="color: rgb(255, 255, 255);">
+                    Simulator
+                </a>
+                <button type="button" class="btn btn-outline-success btn-radius"
+                    onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255);">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex flex-column" style="margin:5%">
+        <h2 class="mt-5">Some Definitions:</h2>
+        <ul>
+            <li>
+                Logical address:
+                It is the address generated by the CPU when the program is running. As it doesn’t exist physically, it
+                is also called a s virtual address. It can also be defined as the address space perceived to be physical
+                address by the operating system. The set of all logical address generated is called logical address
+                space.
+            </li>
+            <li>
+                Physical Address:
+                Identifies a physical location of required data in the main memory. The user never directly deals with
+                the physical address but can access by its corresponding logical address. The user program generates the
+                logical address and thinks that the program is running in this logical address but the program needs
+                physical memory for its execution. The corresponding physical address set generated by all logical
+                address forms the physical address space.
+                The logical address must be mapped to the physical address before its usage.
+            </li>
+            <li>
+                Memory Management Unit:
+                The MMU converts the logical address to its appropriate physical address.
+            </li>
+            <li>
+                Page:
+                The logical address space is divided into fixed length blocks called pages. Each process is thus divided
+                into pages.
+            </li>
+            <li>
+                Frames:
+                The physical address space is divided into fixed length blocks called frames. The size of a page is
+                always equal to the size of a frame.
+            </li>
+            <li>
+                Paging:
+                It is a storage mechanism that allows OS to retrieve processes from the secondary storage into the main
+                memory in the form of pages. In the Paging method, the main memory is divided into frames. The size of a
+                frame should be kept the same as that of a page to have maximum utilization of the main memory and to
+                avoid external fragmentation. Paging is used for faster access to data, and it is a logical concept.
+                Some pages are stored in frames in the main memory while others are stored in the secondary memory in
+                the form of frames.
+            </li>
+            <li>
+                Page faults:
+                A page fault happens when a running program accesses a memory page that is mapped into the virtual
+                address space but not loaded in physical memory. Since actual physical memory is much smaller than
+                virtual memory, page faults occur. In case of a page fault, OS might have to replace one of the existing
+                pages (victim page) with the needed page. Different page replacement algorithms suggest different ways
+                to decide which page is the victim page. The target for all algorithms is to reduce the number of page
+                faults.
+            </li>
+        </ul>
+        <img src="./img/1.png" class="m-5 mx-auto" style="width:30%">
+        <h2>Page fault handling:</h2>
+        <p>The following are the sequence of events that take place in the computer when a page fault occurs:</p>
+        <ol>
+            <li>
+                The computer hardware traps to the kernel and program counter (PC) is saved on the stack. Current
+                instruction state information is saved in CPU registers.
+            </li>
+            <li>
+                An assembly program is started to save the general registers and other volatile information to keep the
+                OS from destroying it.
+            </li>
+            <li>
+                Operating system finds that a page fault has occurred and tries to find out which virtual page is
+                needed. Sometimes hardware register contains this required information. If not, the operating system
+                must retrieve PC, fetch instruction and find out what it was doing when the fault occurred.
+            </li>
+            <li>
+                Once virtual address caused page fault is known, system checks to see if address is valid and checks if
+                there is no protection access problem.
+            </li>
+            <li>
+                If the virtual address is valid, the system checks to see if a page frame is free. If no frames are
+                free, the page replacement algorithm is run to remove a page.
+            </li>
+            <li>
+                If frame selected is dirty, page is scheduled for transfer to disk, context switch takes place, fault
+                process is suspended and another process is made to run until disk transfer is completed.
+            </li>
+            <li>
+                As soon as page frame is clean, operating system looks up disk address where needed page is, schedules
+                disk operation to bring it in.
+            </li>
+            <li>
+                When disk interrupt indicates page has arrived, page tables are updated to reflect its position, and
+                frame marked as being in normal state.
+            </li>
+            <li>
+                Faulting instruction is backed up to state it had when it began and PC is reset. Faulting is scheduled,
+                operating system returns to routine that called it.
+            </li>
+            <li>
+                Assembly Routine reloads register and other state information, returns to user space to continue
+                execution.
+            </li>
+        </ol>
+        <img src="./img/2.png" class="m-5 mx-auto" style="width:30%">
+        <h2>First-In-First-Out (FIFO) Algorithm:</h2>
+        <ul>
+            <li>
+                This is the simplest page replacement algorithm. In this algorithm, the operating system keeps track of
+                all
+                pages in the memory in a queue, the oldest page is in the front of the queue. When a page needs to be
+                replaced page in the front of the queue is selected for removal.
+            </li>
+            <li>
+                Example:
+                Consider the below table with five frames and requests as shown in figure. The pages which enter the
+                frame list first become the victim page during a page fault/miss.
+                Number of Page Faults = 9
+                Number of hits = 6
+            </li>
+            <img src="./img/3.png" class="m-5 mx-auto" style="width:30%">
+            <li>
+                Belady’s Anomaly:
+                Belady’s anomaly proves that it is possible to have more page faults when increasing the number of page
+                frames while using the First in First Out (FIFO) page replacement algorithm or any other non-stack-based
+                algorithm. Consider the following FIFO algorithm example with three frames: -
+                <br>
+                <img src="./img/4.png" class="m-5 mx-auto" style="width:30%">
+                <br>
+                Number of page faults with three frames=9.
+                Now consider the same example with four frames: -
+                <br>
+                <img src="./img/5.png" class="m-5 mx-auto" style="width:30%">
+                <br>
+                Number of page faults with four frames=10.
+                The number of page faults increases even though the number of frames was increased. This is due to
+                Belady’s anomaly.
+            </li>
+            <li>
+                Stack-based algorithm:
+                A stack-based algorithm is one for which it can be shown that the set of pages in memory for N frames is
+                always a subset of the set of pages that would be in memory with N+1 frames. FIFO is a non-stack-based
+                algorithm.
+            </li>
+            <li>
+                Advantages of FIFO algorithm:
+                <ol style="font-size: medium">
+                    <li>
+                        It is simple and easy to understand & implement.
+                    </li>
+                    <li>
+                        It is efficiently used for small systems.
+                    </li>
+                    <li>
+                        It does not cause more overhead.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Disadvantages of FIFO algorithm:
+                <ol style="font-size: medium">
+                    <li>
+                        The process effectiveness is low.
+                    </li>
+                    <li>
+                        When we increase the number of frames while using FIFO, we are giving more memory to processes.
+                        So, page fault should decrease, but here the page faults are increasing. This problem is called
+                        as Belady’s Anomaly.
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <h2>Least Recently Used (LRU) algorithm: </h2>
+        <ul>
+            <li>
+                In this algorithm, victim page will be the page which is least recently used.
+            </li>
+            <li>
+                LRU algorithm is a stack-based algorithm because for LRU replacement, the set of pages in memory would
+                be the n most recently referenced pages. If the number of frames increases then these n pages will still
+                be the most recently referenced and so, will still be in the memory.
+            </li>
+            <li>
+                Consider the following LRU algorithm example with 5 frames and the page request stream as follows: -
+                Number of Page Faults=9.
+                Number of Page hits=6.
+            </li>
+            <img src="./img/6.png" class="m-5 mx-auto" style="width:30%">
+            <li>
+                Advantages of LRU algorithm:
+                <ol style="font-size: medium">
+                    <li>
+                        It is open for full analysis.
+                    </li>
+                    <li>
+                        In this, we replace the page which is least recently used, thus free from Belady’s Anomaly.
+                    </li>
+                    <li>
+                        Easy to choose page which has faulted and hasn’t been used for a long time.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Disadvantages of LRU algorithm:
+                <ol style="font-size: medium">
+                    <li>
+                        It requires additional Data Structure to be implemented.
+                    </li>
+                    <li>
+                        Hardware assistance is high.
+                    </li>
+                    <li>
+                        In LRU error detection is difficult as compared to other algorithms.
+                    </li>
+                    <li>
+                        It has limited acceptability.
+                    </li>
+                </ol>
+            </li>
+        </ul>
+        <h2>Optimal algorithm: </h2>
+        <ul>
+            <li>
+                In this algorithm, pages are replaced which would not be used for the longest duration of time in the
+                future.
+            </li>
+            <li>
+                Optimal algorithm is a stack based algorithm because the n frames containing the pages that would not be
+                used for the longest duration of time in the future will always by definition be a subset of the n+1
+                pages would not be used for the longest duration of time in the future for a particular instant of time.
+            </li>
+            <li>
+                Consider the following optimal algorithm example with four frames and page request stream as shown
+                below:
+                Number of page faults=5.
+                Number of page hits=5.
+            </li>
+            <img src="./img/7.png" class="m-5 mx-auto" style="width:30%">
+            <li>
+                Advantages of optimal algorithm:
+                <ol style="font-size: medium">
+                    <li>
+                        Complexity is less and easy to implement.
+                    </li>
+                    <li>
+                        Assistance needed is low i.e Data Structure used are easy and light.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Disadvantages of optimal algorithm:
+                <ol style="font-size: medium">
+                    <li>
+                        OPR is perfect, but not possible in practice as the operating system cannot know future
+                        requests.
+                    </li>
+                    <li>
+                        Error handling is tough.
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

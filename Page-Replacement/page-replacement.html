@@ -1,0 +1,516 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://fonts.cdnfonts.com/css/caladea" rel="stylesheet">
+
+
+<style>
+    /* body{
+				font-family: "courier new", Times, serif;	
+				background-color: #e0e0e0;
+			} */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    body {
+        font-family: 'Caladea', sans-serif !important;
+    }
+
+    .green {
+        background-color: #A6ECA8 !important;
+    }
+
+    .button1 {
+        border-radius: 4px;
+        background-color: #303030;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button1 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button1 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button1:hover span {
+
+        padding-right: 25px;
+    }
+
+    .button1:hover {
+        background: linear-gradient(to right, #335a4c 50%, #335a4c 100%);
+    }
+
+    .button1:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+
+    /*=====2=========================== style 2 ========================================*/
+    .button2 {
+        position: relative;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        -webkit-transition-duration: 0.2s;
+        /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .button2:after {
+        content: "";
+        background: #90EE90;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.9s
+    }
+
+    .button2:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+        background-color: green;
+    }
+
+    .back {
+        background-color: green;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .but1 {
+
+        position: absolute;
+        margin-left: 12%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but2 {
+
+        position: absolute;
+        margin-left: 29%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but3 {
+        position: absolute;
+        margin-left: 46%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+
+    .but4 {
+
+        position: absolute;
+        margin-left: 63%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but5 {
+
+        position: absolute;
+        margin-left: 80%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    tr,
+    td {
+        border: 2px solid #000000 !important;
+    }
+</style>
+
+<script>
+    var fifoPRSIdx;
+    var fifoPRS;
+    var fifoQ;
+    var misses;
+    var tblhead = "<thead><th>Page referred: </th><th>Status: </th> \
+            <th>Page replaced: </th> \
+            </thead>";
+    var fifopanel = `<h3>FIFO: </h3>
+    <div class="d-flex flex-row w-100">
+                <span class="fw-bold my-auto">Queue front: </span>
+                <div id="que" class="w-100"></div>
+            </div>
+            <div class="d-flex mt-5"> <span class="fw-bold">Page Faults: </span>
+            <span class="mx-5 fw-bold text-danger" id="faults"></span></div>
+            
+            <button class="m-5 mx-auto btn btn-primary" onclick="display_FIFO_queue()">Next page: </button>`;
+
+    var optpanel = `<h3>Optimal: </h3>
+    <div class="d-flex flex-row w-100">
+                <span class="fw-bold my-auto">Page Data: </span>
+                <div id="que" class="w-100"></div>
+            </div>
+            <div class="d-flex mt-5"> <span class="fw-bold">Page Faults: </span>
+            <span class="mx-5 fw-bold text-danger" id="faults"></span></div>
+            <button class="m-5 mx-auto btn btn-primary" onclick="display_OPT_queue()">Next page: </button>`;
+
+    var lrupanel = `<h3>LRU: </h3>
+    <div class="d-flex flex-row w-100">
+                <span class="fw-bold my-auto">Page Data: </span>
+                <div id="que" class="w-100"></div>
+            </div>
+            <div class="d-flex mt-5"> <span class="fw-bold">Page Faults: </span>
+            <span class="mx-5 fw-bold text-danger" id="faults"></span></div>
+            <button class="m-5 mx-auto btn btn-primary" onclick="display_LRU_queue()">Next page: </button>`;
+    function display_FIFO_queue() {
+        if (fifoPRSIdx == fifoPRS.length) {
+            alert('Reached end of page reference string');
+            return;
+        }
+        que = document.getElementById('que')
+        que.innerHTML = ''
+        tbl = document.getElementById('tbl')
+        data = '<div class="m-5 d-flex border rounded border-dark flex-row h-75">'
+        y = fifoPRS[fifoPRSIdx]
+        tbldata = [y.toString()]
+        if (!fifoQ.includes(y)) {
+            misses++;
+            r = fifoQ.shift();
+            fifoQ.push(y);
+            tbldata.push('Miss');
+            tbldata.push(r.toString());
+            for (const x of fifoQ)
+                data += '<div class="w-50 border rounded border-dark d-flex"><span class="my-auto mx-auto fw-bold">' + x.toString() + '</span> </div>'
+        }
+        else {
+            for (const x of fifoQ)
+                data += '<div class="w-50 rounded border' + ((x == y) ? ' green ' : ' ') + 'border-dark d-flex"><span class="my-auto mx-auto fw-bold">' + x.toString() + '</span> </div>'
+            tbldata.push('Hit');
+            tbldata.push('-');
+            data += "</div>"
+        }
+        for (let j = 0; j < tbldata.length; j++)
+            tbldata[j] = "<td>" + tbldata[j] + "</td>"
+        console.log(tbldata)
+        tbl.innerHTML += "<tr>" + tbldata.join('') + "</tr>"
+        data += "</div>"
+        que.innerHTML = data
+        document.getElementById('faults').textContent = misses;
+        fifoPRSIdx++;
+    }
+
+    function fifo(v, k) {
+        fifoPRS = v;
+        fifoQ = new Array(k).fill(0);
+        fifoQIdx = 0;
+        fifoPRSIdx = 0;
+        misses = 0;
+        display_FIFO_queue();
+    }
+
+    function submit() {
+        cap = document.getElementById('ptc').value
+        algo = document.getElementById('algo').value
+        k = parseInt(cap, 10)
+        if (!isNaN(cap) && k > 0) {
+            prs = document.getElementById('prs').value
+            v = [];
+            allvalid = true;
+            for (const y of prs.split(',')) {
+                n = parseInt(y, 10)
+                if (isNaN(n) || n <= 0) {
+                    allvalid = false;
+                    break;
+                }
+                v.push(n);
+            }
+            if (allvalid) {
+                document.getElementById('rightpanel').style.visibility = "initial"
+                document.getElementById('tbl').style.visibility = "initial"
+                document.getElementById('tbl').innerHTML = tblhead;
+                if (algo == 'FIFO') {
+                    console.log('Hi')
+                    document.getElementById('rightpanel').innerHTML = fifopanel;
+                    fifo(v, k);
+                }
+                else if (algo == 'Optimal') {
+                    document.getElementById('rightpanel').innerHTML = optpanel;
+                    opt(v, k);
+                }
+                else {
+                    document.getElementById('rightpanel').innerHTML = lrupanel;
+                    lru(v, k);
+                }
+            }
+            else
+                alert('Invalid page reference string!')
+        }
+        else
+            alert('Invalid number of frames!')
+    }
+</script>
+
+<script>
+    var PRSIdx;
+    var PRS;
+    var misses;
+    var Q;
+    var lastref;
+
+    function opt(v, k) {
+        PRS = v;
+        Q = new Array(k).fill(0);
+        PRSIdx = 0;
+        misses = 0;
+        display_OPT_queue();
+    }
+
+    function display_OPT_queue() {
+        if (PRSIdx == PRS.length) {
+            alert('Reached end of page reference string');
+            return;
+        }
+        que = document.getElementById('que')
+        que.innerHTML = ''
+        tbl = document.getElementById('tbl')
+        data = '<div class="m-5 d-flex rounded border border-dark flex-row h-75">'
+        y = PRS[PRSIdx]
+        tbldata = [y.toString()]
+        nxtref = new Array(Q.length).fill(PRS.length);
+        console.log(Q);
+        for (let j = 0; j < Q.length; j++) {
+            x = Q[j];
+            for (let k = PRSIdx + 1; k < PRS.length; k++)
+                if (PRS[k] == x) {
+                    nxtref[j] = k;
+                    break;
+                }
+        }
+        if (!Q.includes(y)) {
+            misses++;
+            console.log(nxtref);
+            r = Math.max(...nxtref);
+            v = Q[nxtref.indexOf(r)]
+            for (let j = 0; j < Q.length; j++)
+                if (nxtref[j] == r)
+                    v = Math.min(Q[j], v)
+            Q[Q.indexOf(v)] = y;
+            tbldata.push('Miss');
+            tbldata.push(v.toString());
+            for (let j = 0; j < Q.length; j++) {
+                x = Q[j];
+                for (let k = PRSIdx + 1; k < PRS.length; k++)
+                    if (PRS[k] == x) {
+                        nxtref[j] = k;
+                        break;
+                    }
+            }
+            for (let j = 0; j < Q.length; j++) {
+                x = Q[j];
+                z = nxtref[j];
+                data += '<div class="w-50 h-100 border rounded border-dark d-flex flex-column"><span class="fw-bold my-auto mx-auto">' + x.toString() + '</span>' +
+                    '<span>Next: ' + (z == PRS.length ? "(Never)" : z.toString()) + '</span></div>'
+            }
+        }
+        else {
+            for (let j = 0; j < Q.length; j++) {
+                x = Q[j];
+                z = nxtref[j];
+                data += '<div class="w-50 rounded border' + ((x == y) ? ' green ' : ' ') + 'border-dark d-flex flex-column"><span class="fw-bold my-auto mx-auto">' + x.toString() + '</span> '
+                    + '<span>Next: ' + (z == PRS.length ? "(Never)" : z.toString()) + '</span></div>'
+            }
+            tbldata.push('Hit');
+            tbldata.push('-');
+            data += "</div>"
+        }
+        for (let j = 0; j < tbldata.length; j++)
+            tbldata[j] = "<td>" + tbldata[j] + "</td>"
+        console.log(tbldata)
+        tbl.innerHTML += "<tr>" + tbldata.join('') + "</tr>"
+        data += "</div>"
+        que.innerHTML = data
+        document.getElementById('faults').textContent = misses;
+        PRSIdx++;
+    }
+
+    function lru(v, k) {
+        PRS = v;
+        Q = new Array(k).fill(0);
+        PRSIdx = 0;
+        misses = 0;
+        lastref = new Array(Q.length).fill(-1);
+        display_LRU_queue();
+    }
+
+    function display_LRU_queue() {
+        if (PRSIdx == PRS.length) {
+            alert('Reached end of page reference string');
+            return;
+        }
+        que = document.getElementById('que')
+        que.innerHTML = ''
+        tbl = document.getElementById('tbl')
+        data = '<div class="m-5 d-flex border border-dark flex-row h-75">'
+        y = PRS[PRSIdx]
+        tbldata = [y.toString()]
+        console.log(Q);
+        if (!Q.includes(y)) {
+            misses++;
+            console.log(lastref);
+            r = Math.min(...lastref);
+            v = Q[lastref.indexOf(r)]
+            for (let j = 0; j < Q.length; j++)
+                if (lastref[j] == r)
+                    v = Math.min(Q[j], v)
+            Q[Q.indexOf(v)] = y;
+            lastref[Q.indexOf(y)] = PRSIdx;
+            tbldata.push('Miss');
+            tbldata.push(v.toString());
+            for (let j = 0; j < Q.length; j++) {
+                x = Q[j];
+                z = lastref[j];
+                data += '<div class="w-50 border rounded border-dark d-flex flex-column"><span class="fw-bold my-auto mx-auto">' + x.toString() + '</span>' +
+                    '<span>Last used: ' + (z == -1 ? "(Never)" : z.toString()) + '</span></div>'
+            }
+        }
+        else {
+            lastref[Q.indexOf(y)] = PRSIdx;
+            for (let j = 0; j < Q.length; j++) {
+                x = Q[j];
+                z = lastref[j];
+                data += '<div class="w-50 rounded border' + ((x == y) ? ' green ' : ' ') + 'border-dark d-flex flex-column"><span class="fw-bold my-auto mx-auto">' + x.toString() + '</span> '
+                    + '<span>Last used: ' + (z == PRS.length ? "(Never)" : z.toString()) + '</span></div>'
+            }
+            tbldata.push('Hit');
+            tbldata.push('-');
+            data += "</div>"
+        }
+        for (let j = 0; j < tbldata.length; j++)
+            tbldata[j] = '<td>' + tbldata[j] + "</td>"
+        console.log(tbldata)
+        tbl.innerHTML += "<tr>" + tbldata.join('') + "</tr>"
+        data += "</div>"
+        que.innerHTML = data
+        document.getElementById('faults').textContent = misses;
+        PRSIdx++;
+    }
+</script>
+
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top mb-5">
+        <div class="container-fluid d-flex flex-column">
+            <h1 class="mx-auto text-light">Page Replacement Algorithms </h1>
+            <button type="button" class="ms-auto btn btn-outline-success btn-radius "
+                onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255);">
+                Back to Home
+            </button>
+        </div>
+    </nav>
+    <div class="d-flex container" style="margin-top:5%"">
+        <div class=" d-flex flex-column mt-5 w-25 gap-4 h-50">
+        <a href="theory.html" class="btn btn-success">Click here for theory</a>
+        <h3>Enter the following: </h3>
+        <h4>Number of frames: </h4>
+        <input type="text" class="form-control shadow" id="ptc" style="height: 20%">
+        <h4>Page reference string: </h4>
+        <input type="text" class="form-control shadow" id="prs" style="height: 20%">
+        <h4>Algorithm: </h4>
+        <select id="algo" class="shadow form-select">
+            <option>FIFO</option>
+            <option>Optimal</option>
+            <option>LRU</option>
+        </select>
+        <button class="btn btn-primary" onclick="submit()">Go!</button>
+        <h3>Info:</h3>
+        <ul>
+            <li>In all cases, a block with the value 0
+                represents an unfilled frame.
+            </li>
+            <li>In the Optimal algorithm, <em>Next</em> represents
+                the immediate next position in the list where the
+                specific page occurs. If it will never
+                be referenced again, the value is <em>(Never)</em>.</li>
+            <li>
+                In the LRU algorithm, <em>Last used</em> represents
+                the immediate previous position in the list where the
+                specific page was occurs. If it was never
+                referenced (this is the case only for 0), the value is <em>(Never)</em>.
+            </li>
+        </ul>
+    </div>
+    <div id="rightpanel" class="d-flex flex-column vh-100"
+        style="visibility: hidden; width:40%; margin-left:10%; margin-top: 3%">
+
+
+    </div>
+    <table id="tbl" class="w-25 h-50 mx-auto table m-5" style="visibility:hidden">
+
+    </table>
+    </div>
+</body>
+
+</html>

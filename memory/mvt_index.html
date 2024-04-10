@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MVT-1</title>
+  <style>
+    .button {
+      border-radius: 8px;
+      background-color: #333456;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+    
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    
+    .button:hover span {
+      padding-right: 25px;
+    }
+    
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+    
+    .btn-row {
+        margin-top: 50px;
+        animation-name: FadeOut;
+        animation-duration: 5s;
+    }
+    
+    @keyframes FadeOut {
+      0% {
+        /* position: absolute; */
+        opacity: 0;
+      }
+    
+      75% {
+        /* position: absolute; */
+        opacity: 1;
+      }
+    
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    .heading {
+      font-size: 60px;
+      text-align: center;
+      margin-top: 50px;
+      opacity: 1;
+      animation-name: FadeOut;
+      animation-duration: 5s;
+      color: #222831;
+    }
+    
+    .choose {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 90px;
+      opacity: 1;
+      animation-name: FadeOut;
+      animation-duration: 5s;
+      color: rgb(133, 133, 133);
+    }
+    
+    </style>
+    
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="../Intro/css/bootswatch.css" />
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/typeit.js"></script>
+  <script src="js/MVT.js"></script>
+  <script src="js/typed.js"></script>
+</head>
+
+<body>
+  <nav style="border-radius:0%" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+        </ul>
+        <button type="button" class="btn btn-outline-success btn-lg btn-radius " 
+      onclick="window.location.href = 'index.html';" style="color: rgb(15, 2, 2);"> 
+        Back to Home
+        </button>
+        </div>
+    </div>
+    </nav>
+  <br>
+  <div class="container">
+    <div class="jumbotron" style="margin-top: 100px">
+
+      
+      <h1 class="display-3">MVT</h1>
+      <p class="lead">Multiprogramming with Variable Tasks</p>
+      <hr class="my-4">
+      <p>In the MVT scheme, the OS keeps track of which parts of memory are available and which are occupied. Initially, all memory is available for user processes and is considered one large block of available memory, a hole. Eventually, as the
+        processes start entering and leaving the memory,there will be a set of holes of various sizes.</p>
+    </div>
+    <div id="data-input-content-1">
+      <h2 style="margin-left:30px;"> Enter the following details: </h2> </br>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label style="margin-left:30px; font-size:20px;" class="control-label col-sm-2" for="memorySize"> Total Memory: </label>
+          <div class="col-sm-4">
+            <input style="margin-left:30px;" type="number" class="form-control" id="memory" placeholder="Enter total memory size in bytes" required min="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button style="margin-left:130px;" id="input-memory-submit" value="next" class="btn btn-secondary" align="center">Next</button>
+        </div>
+      </form>
+    </div>
+    
+    
+    
+
+</body>
+
+</html>

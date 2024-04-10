@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title> Banker </title>
+	<script type="text/javascript" src="banker.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+	<style>
+		th {
+    color: black;
+}
+.btn{
+  border-radius:20px;
+  background-color: #e0e6e0;
+  color: black;
+}
+p{
+  font-size: 3 em;
+  font-style: normal;
+}
+.bottom{
+ /* position: absolute;*/
+  width: 100%;
+  margin-top: 100px;
+  text-align: right;
+  margin-bottom: 1;
+}
+</style>
+<nav style="border-radius:0%" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+	<div class="container-fluid">
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="mynavbar">
+		<ul class="navbar-nav me-auto">
+		  <li class="nav-item">
+			<!-- <div class="btn-group">
+			  <button type="button" class="btn btn-outline-warning btn-lg btn-radius dropdown-toggle" style="color: white; background-color: black;" data-bs-toggle="dropdown">Classical Problems</button>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">First Come First Serve</a></li>
+				<li><a class="dropdown-item" href="#">Shortest Job First</a></li>
+				<li><a class="dropdown-item" href="#">Shortest Remaining Time First</a></li>
+				<li><a class="dropdown-item" href="#">Longest Job First</a></li>
+				<li><a class="dropdown-item" href="#">Largest Remaining Time First</a></li>
+				<li><a class="dropdown-item" href="#">Priority Preemptive</a></li>
+				<li><a class="dropdown-item" href="#">Priority Non Preemptive</a></li>
+				<li><a class="dropdown-item" href="#">Compare Algorithms</a></li>
+				<li><a class="dropdown-item" href="#">Round Robin</a></li>
+				<li><a class="dropdown-item" href="#">Highest Response Ratio Next</a></li>
+  
+			  </ul>
+			</div> -->
+		</li>
+		  <!-- <li class="nav-item">
+			<div class="btn-group">
+			<a class="btn btn-outline-warning btn-lg btn-radius" style="color: white; background-color: black;" href="javascript:void(0) ">Team Members</a>
+		  </li> -->
+		  <li class="nav-item">
+			<div class="btn-group">
+			  <button type="button" class="btn btn-outline-warning btn-lg btn-radius dropdown-toggle" style="color: white; background-color: black;" data-bs-toggle="dropdown">Concepts</button>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="../Scheduling/index.html">Process Scheduling</a></li>
+						<li><a class="dropdown-item" href="../Deadlock/index.html">Deadlocks</a></li>
+						<li><a class="dropdown-item" href="../disk/disk_scheduling.html">Disk Scheduling</a></li>
+						<li><a class="dropdown-item" href="../Scheduling/longest_job_first.html">Longest Job First</a></li>
+						<li><a class="dropdown-item" href="../Syncronization/index.html">Process Synchronization</a></li>
+						<li><a class="dropdown-item" href="../memory/index.html">MFT and MVT</a></li>
+						<li><a class="dropdown-item" href="../OS-final/index.html">Non Contiguous Memory Management</a></li>
+						<li><a class="dropdown-item" href="../file-allocation/index_page.html">File Allocation</a></li>
+			  </ul>
+			</div>
+		  </div>
+		</li>
+		</ul>
+	  <button type="button" class="btn btn-outline-success btn-lg btn-radius" 
+	  onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255); background-color:  black;"> 
+		Back to Home
+		</button>  
+	  </div>
+	</div>
+	</nav>
+<br><br><br><br><br><br>
+ </head>
+ <body>
+	
+<div class="container">
+	<h1>
+		<b>Banker's Algorithm</b>
+	  </h1>
+	  <h2>
+		Simulation
+	  </h2>
+	  <br>
+		<div>
+		  <p>We suggest users to go through the theory related to the topic before running the simulation. <br>To read the theory, click on the button below</p>
+		  <br>
+		  <a href="banker_theory.html"><button" class="btn btn-outline-secondary">Click here to know more</button></a>
+		  <br>
+		  <br>
+		  <br>
+		  <br>
+ <div style="float:left; margin-right:20px;">Enter the Number of Resources:</div>
+ <input style = "width: 50px;float:left;margin-right:30px;
+  border: 2px solid black; padding:10px;
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;" id = "totalres" onkeyup="addInitialRes()" type="text">
+	<button class="btn btn-outline-secondary" style ="float:right;margin-right:20px;" onclick="clear_data()" >Clear Data</button>
+ </div>
+ 
+	<br><br/>
+	<br><br/>
+	<br><br/>
+	<div id = "resources" style="margin-left:10px;"></div>
+	<br><br/>
+	<br><br/>
+	<div id = "table" style="margin-left:0px;">
+	<div style = "width:50%; float:left;">
+	
+	<div id="heading"></div>
+	<br>
+	<table id="tab" class="table table-hover table-bordered " style="width:500px">
+	<thead id="inp-head" class="table-secondary"> 
+	</thead>
+	<tbody id="ptable">
+	</tbody >
+	</table>
+	</div>
+	<div style = "width:50%; float:left;">
+	<div id="heading_alloc"></div>
+	<br>
+	<table id="tab_alloc" class="table table-hover table-bordered " style="width:500px">
+	<thead id="inp-head_alloc" class="table-secondary"> 
+	</thead>
+	<tbody id="ptable_alloc">
+	</tbody >
+	</table>
+	</div>
+	</div>
+	<br><br/><br><br>
+	<div id ="inputsection">
+	</div>
+	<br><br/>
+	<br><br/>
+	<div id="firs_alloc" style = "margin-left:10px">
+	
+	</div>
+	<div id = "run" style="text-align:center;">
+	<button type="button" class="btn btn-outline-secondary" onclick="banker()" >Run</button>
+	</div>
+	<br><br/>
+	<br><br/>
+	<div id = "operations" >
+	</div>
+	<br><br/>
+	<div id = "output1" style = "text-align:center">
+	</div>
+	<br><br/>
+	<br><br/>
+	<div id = "output" style = "text-align:center">
+	
+	</div>
+	<br><br/>
+	<br><br/>
+	<div id = "output2" style = "text-align:center">
+	
+	</div>
+	<br><br/>
+</div> 
+</body>
+</html>

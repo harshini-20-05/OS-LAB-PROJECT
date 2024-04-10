@@ -1,0 +1,450 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://fonts.cdnfonts.com/css/caladea" rel="stylesheet">
+
+<script>
+    var v;
+    var blk;
+    var algo;
+    var table;
+    var empty;
+    var link;
+    var index;
+    function validateInteger(s) {
+        val = parseInt(s, 10);
+        if (!isNaN(val) && val > 0)
+            return val;
+        else
+            return -1;
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function add_file() {
+        //console.log(v);
+        s = validateInteger(document.getElementById('afile_size').value);
+        idf = validateInteger(document.getElementById('afile_id').value);
+        if (s == -1)
+            alert('Invalid file size!');
+        else if (idf == -1)
+            alert('Invalid file identifier!');
+        else if (idf in table)
+            alert('File already on disk!');
+        else {
+            if (algo == "Sequential") {
+                alloc = false;
+                for (let j = 0; j < blk; j++) {
+                    k = j;
+                    while (j < blk && v[j] == 0)
+                        j++;
+                    col = getRandomColor();
+                    if (j - k >= s) {
+                        for (let p = k; p < k + s; p++) {
+                            document.getElementById('blk' + p.toString()).textContent = idf;
+                            document.getElementById('blk' + p.toString()).style.backgroundColor = col;
+                            v[p] = idf;
+                        }
+                        table[idf] = [k, s];
+                        alloc = true;
+                        break;
+                    }
+                }
+                console.log(table);
+                if (!alloc)
+                    alert('Not enough space!');
+            }
+            else if (algo == "Linked") {
+                if (empty < s)
+                    alert('Not enough space!');
+                else {
+                    col = getRandomColor();
+                    empty -= s;
+                    for (let j = 0; j < blk; j++) {
+                        if (v[j] == 0) {
+                            s--;
+                            table[idf] = j;
+                            for (let k = j + 1; s > 0 && k < blk; k++) {
+                                if (!v[k]) {
+                                    v[j] = idf;
+                                    link[j] = k;
+                                    document.getElementById('blk' + j.toString()).textContent = '{' +
+                                        idf.toString() + ',' + link[j].toString() + '}';
+                                    document.getElementById('blk' + j.toString()).style.backgroundColor = col;
+                                    j = k;
+                                    s--;
+                                }
+                            }
+                            v[j] = idf;
+                            link[j] = -1;
+                            document.getElementById('blk' + j.toString()).textContent = '{' +
+                                idf.toString() + ',' + link[j].toString() + '}';
+                            document.getElementById('blk' + j.toString()).style.backgroundColor = col;
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                if (empty < s + 1)
+                    alert('Not enough space!');
+                else {
+                    col = getRandomColor();
+                    empty -= s;
+                    for (let j = 0; j < blk; j++) {
+                        if (v[j] == 0) {
+                            table[idf] = j;
+                            v[j] = idf;
+                            document.getElementById('blk' + j.toString()).textContent =
+                                idf.toString() + ' I';
+                            document.getElementById('blk' + j.toString()).style.backgroundColor = col;
+                            for (let k = j + 1; s > 0 && k < blk; k++) {
+                                if (!v[k]) {
+                                    v[k] = idf;
+                                    index[j].push(k);
+                                    document.getElementById('blk' + k.toString()).textContent = idf;
+                                    document.getElementById('blk' + k.toString()).style.backgroundColor = col;
+                                    s--;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function delete_file() {
+        console.log(table);
+        console.log(link);
+        idf = validateInteger
+            (document.getElementById('dfile_id').value);
+        if (idf == -1)
+            alert('Invalid file identifier!');
+        else if (!(idf in table))
+            alert('File not on disk!');
+        else {
+            if (algo == 'Sequential') {
+                f = table[idf]
+                x = f[0], y = f[1];
+                for (let p = x; p < x + y; p++) {
+                    document.getElementById('blk' + p.toString()).textContent = '0';
+                    document.getElementById('blk' + p.toString()).style.backgroundColor = 'white';
+                    v[p] = 0;
+                }
+            }
+            else if (algo == 'Linked') {
+                x = table[idf];
+                for (let p = x; p != -1;) {
+                    document.getElementById('blk' + p.toString()).textContent = '{0, -1}';
+                    document.getElementById('blk' + p.toString()).style.backgroundColor = 'white';
+                    t = link[p];
+                    v[p] = 0;
+                    link[p] = -1;
+                    p = t;
+                    empty++;
+                }
+            }
+            else {
+                x = table[idf];
+                for (const p of index[x]) {
+                    document.getElementById('blk' + p.toString()).textContent = '0';
+                    document.getElementById('blk' + p.toString()).style.backgroundColor = 'white';
+                    v[p] = 0;
+                    empty++;
+                }
+                empty++;
+                index[x] = []
+                v[x] = 0
+                document.getElementById('blk' + x.toString()).textContent = '0';
+                document.getElementById('blk' + x.toString()).style.backgroundColor = 'white';
+            }
+            delete table[idf];
+        }
+    }
+
+    function submit() {
+        blk = parseInt(document.getElementById('blk').value, 10)
+        algo = document.getElementById('algo').value
+        if (!isNaN(blk) && blk > 0) {
+            que = document.getElementById('que')
+            que.innerHTML = ''
+            document.getElementById('rightpanel').style.visibility = "initial"
+            data = '<div class="m-5 d-flex border rounded border-dark flex-row h-75">';
+            f = '0'
+            if (algo == 'Linked')
+                f = '{0, -1}';
+            for (let j = 0; j < blk; j++) {
+                data += '<div id="blk' + j + '" class="text-center w-100 border rounded border-dark d-flex">' + f + '</div>'
+            }
+            v = new Array(blk).fill(0);
+            link = new Array(blk).fill(-1);
+            index = []
+            for (let j = 0; j < blk; j++)
+                index.push([])
+            table = {}
+            empty = blk;
+            que.innerHTML = data
+        }
+        else
+            alert('Invalid number of blocks!');
+    }
+</script>
+<style>
+    /* body{
+				font-family: "courier new", Times, serif;	
+				background-color: #e0e0e0;
+			} */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    body {
+        font-family: 'Caladea', sans-serif !important;
+    }
+
+    .green {
+        background-color: #A6ECA8 !important;
+    }
+
+    .button1 {
+        border-radius: 4px;
+        background-color: #303030;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button1 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button1 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button1:hover span {
+
+        padding-right: 25px;
+    }
+
+    .button1:hover {
+        background: linear-gradient(to right, #335a4c 50%, #335a4c 100%);
+    }
+
+    .button1:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+
+    /*=====2=========================== style 2 ========================================*/
+    .button2 {
+        position: relative;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        -webkit-transition-duration: 0.2s;
+        /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .button2:after {
+        content: "";
+        background: #90EE90;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.9s
+    }
+
+    .button2:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+        background-color: green;
+    }
+
+    .back {
+        background-color: green;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .but1 {
+
+        position: absolute;
+        margin-left: 12%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but2 {
+
+        position: absolute;
+        margin-left: 29%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but3 {
+        position: absolute;
+        margin-left: 46%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+
+    .but4 {
+
+        position: absolute;
+        margin-left: 63%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but5 {
+
+        position: absolute;
+        margin-left: 80%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    tr,
+    td {
+        border: 2px solid #000000 !important;
+    }
+</style>
+
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top mb-5">
+        <div class="container-fluid d-flex flex-column">
+                <h1 class="mx-auto text-light">File Allocation Strategies </h1>
+                <button type="button" class="ms-auto btn btn-outline-success btn-radius "
+                    onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255);">
+                    Back to Home
+                </button>
+        </div>
+    </nav>
+    <div class="d-flex container" style="margin: 5%">
+        <div class="d-flex flex-column w-25 mt-5 gap-4 h-50">
+            <a href="theory.html" class="btn btn-success">Click here for theory</a>
+            <h3>Enter the following: </h3>
+            <h4>Number of blocks: </h4>
+            <input type="text" class="form-control shadow" id="blk" style="height: 20%">
+            <h4>Algorithm: </h4>
+            <select id="algo" class="shadow form-select">
+                <option>Sequential</option>
+                <option>Linked</option>
+                <option>Indexed</option>
+            </select>
+            <button class="btn btn-primary" onclick="submit()">Go!</button>
+            <h3>Info:</h3>
+            <ul>
+                <li>In sequential allocation, a block with value 0 is untaken.</li>
+                <li>In linked allocation, a block containing <em>{a, b}</em>belongs to
+                    the file with file identifier <em>a</em> and carries a link to
+                    block <em>b</em>. <em>a</em> is 0 if the block is untaken, and
+                    <em>b</em> is -1 if the block is not linked to any other block.
+                </li>
+                <li>In indexed allocation, a block with value 0 is untaken and, an
+                    index block carries an 'I' along with the file identifier.
+                </li>
+            </ul>
+            <p>
+            </p>
+        </div>
+        <div id="rightpanel" class="d-flex flex-column w-75 vh-100"
+            style="visibility: hidden; width:40%; margin-left:2%; margin-top: 3%">
+            <div id="que" class="w-100"></div>
+            <div class="d-flex w-100">
+                <div class="d-flex flex-column w-50 h-75 m-5 border border-primary rounded">
+                    <h4 class="mx-auto mt-3">Add File:</h4>
+                    <h5 class="mx-auto mt-3">File identifier:</h5>
+                    <input id="afile_id" type="text" class="mx-auto w-50 form-control">
+                    <h5 class="mx-auto mt-3">File size:</h5>
+                    <input id="afile_size" type="text" class="mx-auto w-50 form-control">
+                    <button class="btn btn-primary m-5" onclick="add_file()">Add file </button>
+                </div>
+                <div class="d-flex flex-column w-50 h-75 m-5 border border-primary rounded">
+                    <h4 class="mx-auto mt-3">Delete File:</h4>
+                    <h5 class="mx-auto mt-3">File identifier:</h5>
+                    <input id="dfile_id" type="text" class="mx-auto w-50 form-control">
+                    <button onclick="delete_file()" class="btn btn-primary m-5">Delete file </button>
+                </div>
+            </div>  
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

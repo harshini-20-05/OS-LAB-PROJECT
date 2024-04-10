@@ -1,0 +1,359 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://fonts.cdnfonts.com/css/caladea" rel="stylesheet">
+
+<style>
+    /* body{
+				font-family: "courier new", Times, serif;	
+				background-color: #e0e0e0;
+			} */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    body {
+        font-family: 'Caladea', sans-serif !important;
+    }
+
+    .green {
+        background-color: #A6ECA8 !important;
+    }
+
+    .button1 {
+        border-radius: 4px;
+        background-color: #303030;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button1 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button1 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button1:hover span {
+
+        padding-right: 25px;
+    }
+
+    .button1:hover {
+        background: linear-gradient(to right, #335a4c 50%, #335a4c 100%);
+    }
+
+    .button1:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+
+    /*=====2=========================== style 2 ========================================*/
+    .button2 {
+        position: relative;
+        font-size: 28px;
+        color: #FFFFFF;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        -webkit-transition-duration: 0.2s;
+        /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .button2:after {
+        content: "";
+        background: #90EE90;
+        display: block;
+        position: absolute;
+        padding-top: 300%;
+        padding-left: 350%;
+        margin-left: -20px !important;
+        margin-top: -120%;
+        opacity: 0;
+        transition: all 0.9s
+    }
+
+    .button2:active:after {
+        padding: 0;
+        margin: 0;
+        opacity: 1;
+        transition: 0s;
+        background-color: green;
+    }
+
+    .back {
+        background-color: green;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .but1 {
+
+        position: absolute;
+        margin-left: 12%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but2 {
+
+        position: absolute;
+        margin-left: 29%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but3 {
+        position: absolute;
+        margin-left: 46%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+
+    .but4 {
+
+        position: absolute;
+        margin-left: 63%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    .but5 {
+
+        position: absolute;
+        margin-left: 80%;
+        margin-top: 22%;
+        border-radius: 40px;
+    }
+
+    ul,
+    ol,
+    p {
+        font-size: larger;
+    }
+</style>
+
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    </head>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top mb-5">
+        <div class="container-fluid d-flex flex-column">
+            <h1 class="mx-auto text-light">File Allocation Strategies </h1>
+            <div class="d-flex justify-content-between w-100">
+                <a class=" btn btn-outline-success btn-radius " href="./file-allocation.html"
+                    style="color: rgb(255, 255, 255);">
+                    Simulator
+                </a>
+                <button type="button" class="btn btn-outline-success btn-radius"
+                    onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255);">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex flex-column" style="margin:5%">
+        <p class="mt-5">
+            The allocation methods define how the files are stored in the disk blocks. There are three main disk space
+            or file allocation methods.
+        </p>
+        <ul>
+            <li>Contiguous</li>
+            <li>Linked</li>
+            <li>Indexed</li>
+        </ul>
+        <p>The main idea behind these methods is to provide:</p>
+        <ul>
+            <li>
+                Efficient disk space utilization
+            </li>
+            <li>
+                Fast access to the file blocks.
+            </li>
+        </ul>
+        <p>
+            All the three methods have their own advantages and disadvantages as discussed below:
+        </p>
+        <h2>Contiguous Allocation :</h2>
+        <ul>
+            <li>Contiguous allocation is one of the most used methods for allocation.
+            </li>
+            <li>Contiguous allocation means we
+                allocate the block in such a manner, so that in the hard disk, all the blocks get the contiguous
+                physical
+                block.
+            </li>
+        </ul>
+        <p>
+            <strong>Example of contiguous allocation:</strong> <br>
+            We can see in the given diagram, that there is a file. The name of the file is ‘mail.’ The file starts from
+            the 19th block and the length of the file is 6. So, the file occupies 6 blocks in a contiguous manner. Thus,
+            it will hold blocks 19, 20, 21, 22, 23, 24.
+        </p>
+        <img src="img/1.png" class="mx-auto" style="width:30%"">
+        <h4>Advantages of Contiguous Allocation:</h4>
+        <ol>
+            <li>
+                The contiguous allocation method gives excellent read performance.
+            </li>
+            <li>
+                Contiguous allocation is easy to implement.
+            </li>
+            <li>
+                The contiguous allocation method supports both types of file access methods that are sequential access
+                and
+                direct access.
+            </li>
+            <li>
+                The Contiguous allocation method is fast because, in this method number of seeks is less due to the
+                contiguous allocation of file blocks.
+            </li>
+        </ol>
+        <h4>Disadvantages of Contiguous Allocation:</h4>
+        <ol>
+            <li>
+                In the contiguous allocation method, sometimes disk can be fragmented.
+            </li>
+            <li>
+                In this method, it is difficult to increase the size of the file due to the availability of the
+                contiguous memory block.
+            </li>
+        </ol>
+        <h2>Linked  Allocation:</h2>
+        <ul>
+            <li>
+                In this scheme, each file is a linked list of disk blocks which need not be contiguous. The disk blocks can be scattered anywhere on the disk.
+            </li>
+            <li>
+                The directory entry contains a pointer to the starting and the ending file block. Each block contains a pointer to the next block occupied by the file.
+            </li>
+        </ul>
+        <p><strong>Example of linked  allocation:</strong> <br>
+            We can see in the below figure that we have a file named ‘jeep.’ The value of the start is 9. So, we have to start the allocation from the 9th block, and blocks are allocated in a random manner. The value of the end is 25. It means the allocation is finished on the 25th block. We can see in the below figure that the block (25) comprised of -1, 
+            which means a null pointer, and it will not point to another block.
+        </p>
+        <img src=" img/2.jpg" class="mx-auto" style="width:30%"">
+        <h4>
+            Advantages of Linked  Allocation:
+        </h4>
+        <ol>
+            <li>
+                In linked list allocation, there is no external fragmentation. Due to this, we can utilize the memory better.
+            </li>
+            <li>
+                In linked list allocation, a directory entry only comprises of the starting block address.
+            </li>
+            <li>
+                The linked allocation method is flexible because we can quickly increase the size of the file because, in this to allocate a file, we do not require a chunk of memory in a contiguous form.
+            </li>
+        </ol>
+        <h4>Disadvantages of Linked Allocation: </h4>
+        <ol>
+            <li>
+                Linked list allocation does not support direct access or random access.
+            </li>
+            <li>
+                In linked list allocation, we need to traverse each block.
+            </li>
+            <li>
+                If the pointer in the linked list break in linked list allocation, then the file gets corrupted.
+            </li>
+            <li>
+                In the disk block for the pointer, it needs some extra space.
+            </li>
+        </ol>
+        <h2>Indexed Allocation:</h2>
+        <ul>
+            <li>
+                In the indexed allocation method, we have an additional block, and that block is known as the index block.
+            </li>
+            <li>
+                For each file, there is an individual index block. In the index block, the ith entry holds the disk address of the ith file block. We can see in the below figure that the directory entry comprises of the address of the index block.
+            </li>
+        </ul>
+        <p><strong>Example of indexed allocation:</strong> <br>
+            Here, the index block is 19.
+        </p>
+        <img src=" img/3.jpg" class="mx-auto" style="width:30%"">
+        <h4>
+            Advantages of Indexed Allocation:
+        </h4>
+        <ol>
+            <li>
+                The indexed allocation method solves the problem of external fragmentation.
+            </li>
+            <li>
+                Indexed allocation provides direct access.
+            </li>
+        </ol>
+        <h4>Disadvantages of Indexed Allocation: </h4>
+        <ol>
+            <li>
+                In indexed allocation, pointer overhead is more.
+            </li>
+            <li>
+                We can lose the entire file if an index block is not correct.
+            </li>
+            <li>
+                It is totally a wastage to create an index for a small file.
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<title>Deadlocks</title>
+	</head>
+
+	
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<style>
+			.btn{
+				border-radius:20px;
+				background-color: #e0e6e0;
+				color: black;
+				}
+				p{
+				font-size: 3 em;
+				font-style: normal;
+				}
+				.center {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+				}
+		</style>		
+
+	<body>
+		<nav  style="border-radius:0%" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+			<div class="container-fluid">
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="mynavbar">
+				
+			  <button type="button" class="btn btn-outline-success btn-lg btn-radius" 
+			  onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255); background-color:  black;"> 
+				Back to Home
+				</button>  
+			  </div>
+			</div>
+			</nav>
+	<br><br><br><br><br><br>
+<!-- <br><br><br><br><br> -->
+<div class="container">
+		<h1 style="text-align:center; color:black"> <b>Deadlock Handling</b> </h1>
+<br><br>
+		<p style="font-size: large;">
+			A Deadlock is a situation where each of the computer process waits for a resource which is
+being assigned to some another process. In this situation, none of the process gets executed
+since the resource it needs, is held by some other process which is also waiting for some other
+resource to be released. A deadlock may be thought of as indefinite starvation.
+In the below example, P1 requires resource R1 which is held by P2, but P2 requires resource R1
+which is held by P1. This causes both processes to wait indefinitely.
+		</p>
+		<img src="data:image/png;base64,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" alt="deadlock" class="center">
+		<p style="font-size: large;">
+			<b>
+
+				The four conditions mentioned below must all be followed simultaneously to achieve deadlock:
+			</b>
+			<ol style="font-size: large;">
+				<li>
+					Mutual exclusion
+				</li>
+				<li>
+					Hold and wait
+				</li>
+				<li>
+					No Preemption
+				</li>
+				<li>
+					Circular Wait
+				</li>
+			</ol>
+		</p>
+		<p style="font-size: large;">
+			<b>
+				The following strategies are used for handling deadlocks:
+			</b>
+			<ol style="font-size: large;">
+				<li>
+					Deadlock Ignorance
+				</li>
+				<li>
+					Deadlock Prevention
+				</li>
+				<li>
+					Deadlock Avoidance
+				</li>
+				<li>
+					Deadlock Detection and Recovery
+				</li>
+			</ol>
+		</p>
+		<br><br><br>
+		<!-- <div class="center"> -->
+		<div class="card center" style="width:400px">
+			<img class="card-img-top" src="https://helloworld957536278.files.wordpress.com/2021/09/image022.jpg" alt="Card image">
+			<div class="card-body">
+			  <h2 class="card-title"><b>Bankers Algorithm</b></h2>
+			  <p class="card-text">Banker's algorithm is one such deadlock avoidance algorithm</p>
+			  <a href="banker.html" class="btn btn-outline-secondary">Learn about Banker's Algorithm</a>
+			</div>
+		  </div>
+		<!-- </div> -->
+		<br><br><br>
+		
+		<!-- <br><br><br><br><br><br><br><br> -->
+		<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    </div>
+	<div class="container">
+		<h3>
+			Preventing recursive locks
+		</h3>
+		<p style="font-size: large;">
+			This prevents a single thread from entering the same lock more than once.
+		</p>
+			
+		<br><br><br><br>
+	</div>
+	</body>
+
+</html>
