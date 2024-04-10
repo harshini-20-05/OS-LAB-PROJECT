@@ -7,7 +7,7 @@ This OS-Simulator project is built by a team of 10 students from NITK, Surathkal
 To run this in your machine, run this code and open index.html
 
 ```
-npm init
+npm i
 npm install -D tailwindcss
 npx tailwindcss init
 ```
