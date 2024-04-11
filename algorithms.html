@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script>  -->
+    <title>Operating System</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+      }
+
+      #myBtn:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body
+    class="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"
+  >
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="./index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            class="h-8"
+            alt="Flowbite Logo"
+          />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            >Home</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="./about.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >About</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="./algorithms.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Algorithms</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      Back to Top
+    </button>
+
+    <section class="text-gray-600 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="Syncronization/index.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="sync.jpg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                Process Synchronization
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Process synchronization is an essential concept in operating
+                systems...
+              </p>
+              <a
+                href="Syncronization/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="Syncronization/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="memory/index.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="memory-image.jpeg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                Memory Management
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Memory management is a crucial aspect of operating systems...
+              </p>
+              <a
+                href="memory/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="memory/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="Disk-Scheduling-Algorithms/Disk.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="disk.jpg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                Disk Scheduling
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Disk scheduling algorithms play a crucial role in optimizing
+                disk performance...
+              </p>
+              <a
+                href="Disk-Scheduling/Disk.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="Disk-Scheduling/Disk.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="Deadlock/index.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="deadlock-image.jpg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">Deadlocks</h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Deadlocks are a state in which two or more processes are unable
+                to proceed due to each waiting for the other to release
+                resources...
+              </p>
+              <a
+                href="Deadlocks/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="Deadlocks/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="Scheduling/index.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="process_scheduling.jpg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                Process Scheduling
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Process scheduling involves the selection of processes from the
+                ready queue and their allocation to the CPU...
+              </p>
+              <a
+                href="Scheduling/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="Scheduling/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="OS-final/paging.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="paging.jpg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                Single Level Paging
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Single level paging is a memory management scheme in which both
+                the logical and physical address spaces are divided into
+                fixed-size pages and frames...
+              </p>
+              <a
+                href="paging/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="paging/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="File/file-allocation.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="file_allocation.jpg"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                File Allocation
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                File allocation refers to the methods and strategies used by the
+                file system to allocate space on storage devices for files...
+              </p>
+              <a
+                href="file_allocation/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="file_allocation/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="overflow-hidden">
+              <a href="Page-Replacement/page-replacement.html">
+                <img
+                  alt="content"
+                  class="object-cover object-center h-48 w-full"
+                  src="page_replacement.png"
+                />
+              </a>
+            </div>
+            <div
+              class="p-6 bg-blue-50 border border-blue-200 rounded-b-lg shadow-lg"
+            >
+              <h2 class="text-2xl font-medium text-gray-900 mb-3">
+                Page Replacement Algorithms
+              </h2>
+              <p
+                class="leading-relaxed text-base text-gray-700 dark:text-gray-400"
+              >
+                Page replacement algorithms are used in operating systems to
+                manage the page table and decide which pages to replace when a
+                page fault occurs...
+              </p>
+              <a
+                href="page_replacement/index.html"
+                class="inline-block mt-4 text-blue-500 hover:text-blue-600"
+                >Learn more</a
+              >
+              <a href="page_replacement/index.html">
+                <button
+                  class="mt-6 text-white bg-blue-500 border-0 py-2 px-5 focus:outline-none hover:bg-blue-600 rounded-full"
+                >
+                  Simulate
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      var mybutton = document.getElementById("myBtn");
+
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+  </body>
+</html>

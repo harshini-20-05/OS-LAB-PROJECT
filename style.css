@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+@import url("https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700");
 
 :root {
   --color: #3c3163;
@@ -13,7 +12,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   background: #fafafa;
 }
 
@@ -33,9 +32,13 @@ a {
 }
 
 .card {
-  font-family: 'Heebo';
+  font-family: "Heebo";
   --bg-filter-opacity: 0.5;
-  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+  background-image: linear-gradient(
+      rgba(0, 0, 0, var(--bg-filter-opacity)),
+      rgba(0, 0, 0, var(--bg-filter-opacity))
+    ),
+    var(--bg-img);
   height: 20em;
   width: 15em;
   font-size: 1.5em;
@@ -67,7 +70,7 @@ a {
 
 .card p {
   font-size: 0.75em;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   margin-top: 0.5em;
   line-height: 2em;
 }
@@ -78,7 +81,7 @@ a {
 
 .card .tags .tag {
   font-size: 0.75em;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 0.3rem;
   padding: 0 0.5em;
   margin-right: 0.5em;
@@ -98,11 +101,12 @@ a {
   font-size: 0.75em;
   padding: 1em;
   line-height: 1em;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.card:before, .card:after {
-  content: '';
+.card:before,
+.card:after {
+  content: "";
   transform: scale(0);
   transform-origin: top left;
   border-radius: 50%;
@@ -130,7 +134,8 @@ a {
   color: var(--color);
 }
 
-.card:hover:before, .card:hover:after {
+.card:hover:before,
+.card:hover:after {
   transform: scale(1);
 }
 
