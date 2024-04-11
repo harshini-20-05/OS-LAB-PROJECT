@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Scheduling Algorithms Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #add8e6; /* Light blue */
+            font-family: Arial, sans-serif;
+            color: #003366; /* Navy blue */
+        }
+
+        .navbar {
+            background-color: #003366; /* Dark blue */
+            color: white;
+            border-radius: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-decoration: none; 
+        }
+
+        .navbar-brand h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 16px;
+            margin-left: 20px;
+            
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .container {
+            /* background-color: #f0f8ff; Light blue */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center; /* Center align content */
+        }
+
+        .container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #003366; /* Navy blue */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #003366; /* Navy blue */
+            margin-right: 10px;
+        }
+
+        .form-control {
+            width: 200px;
+            height: 40px;
+            padding: 0 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ced4da; /* Grey */
+            background-color: #fff; /* White */
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #003366; /* Dark blue */
+            box-shadow: 0 0 0 0.2rem rgba(0, 51, 102, 0.25); /* Light blue */
+        }
+
+        button {
+            background-color: #003366; /* Dark blue */
+            border-color: #003366; /* Dark blue */
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #001a33; /* Darker blue */
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+        #graph_area {
+            width: 80%;
+            margin: auto;
+            height: 400px; /* Adjust height as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="text-decoration: none;">
+                        <h1 class="heading" id="myheading" style="color: #fff; font-size: 40px; ">Disk Scheduling Algorithms</h1>
+                    </a>
+                </div>
+                <br>
+                <br>
+                <div class="nav-links">
+                    <a href="index.html" class="btn btn-primary">Click here to know more</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="main">
+        <div class="container">
+            <h2>ENTER THE FOLLOWING:</h2>
+            <form name="myForm">
+                <div class="form-group">
+                    <label for="algorithm">Algorithm</label>
+                    <select class="form-control" id="algorithm">
+                        <option id="o1" value="fcfs">FCFS</option>
+                        <option id="o2" value="sstf">SSTF</option>
+                        <option id="o3" value="scan">SCAN</option>
+                        <option id="o4" value="c-scan">C-SCAN</option>
+                        <option id="o5" value="look">LOOK</option>
+                        <option id="o6" value="c-look">C-LOOK</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="direction">Direction</label>
+                    <select class="form-control" id="direction">
+                        <option value="left" selected="selected">Left</option>
+                        <option value="right">Right</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bitstream-input">Sequence of seek requests</label>
+                    <input class="form-control" id="bitstream-input" name="bitstream" placeholder="Space-separated sequence" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="initial-input">Initial Head Position</label>
+                    <input class="form-control" id="initial-input" name="intial" type="number">
+                </div>
+                <div class="form-group">
+                    <label for="final-input">Disk size</label>
+                    <input class="form-control" id="final-input" name="final" type="number">
+                </div>
+                <button type="button" id="submit-button" onclick="callMyAlgorithm()">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <div  class="container" id="result-section">
+        <h2>RESULTS</h2>
+        <p id="seek-time"></p>
+        <p id="sequence"></p>
+    </div>
+    <div id="graph_area"></div>
+    
+    <script>
+       
+function callMyAlgorithm() {
+    // Retrieve the values from the form fields
+    var alg = document.getElementById("algorithm").value;
+    var inp = document.getElementById("bitstream-input").value;
+    var ini = document.getElementById("initial-input").value;
+    var final = document.getElementById("final-input").value;
+    var dir = document.getElementById("direction").value;
+
+    // Log the retrieved values to the console
+    console.log("Algorithm selected: " + alg);
+    console.log("Sequence of cylinders: " + inp);
+    console.log("Initial cylinder: " + ini);
+    console.log("Last cylinder: " + final);
+    console.log("Direction: " + dir);
+
+    // Call myalgorithm function with the retrieved values
+    myalgorithm(alg, inp, ini, final, dir);
+}
+
+// Function to handle algorithm selection and calculate seek time
+function myalgorithm(alg, inp, ini, final, dir) {
+    // Check the value of alg and perform calculations accordingly
+    if (alg === "fcfs") {
+        // Convert input string to array of integers
+        var sequence = inp.split(" ").map(Number);
+        // Initial head position
+        var head = parseInt(ini);
+        // Total seek time
+        var seekTime = 0;
+        var sequenceOrder = [];
+        sequenceOrder.push(head);
+        // Log the sequence and initial head position to the console
+        console.log("Sequence: ", sequence);
+        console.log("Initial head position: ", head);
+        var max=parseInt(final);
+        // Calculate seek time using FCFS algorithm
+        for (var i = 0; i < sequence.length; i++) {
+            sequenceOrder.push(sequence[i]);
+            seekTime += Math.abs(head - sequence[i]);
+            head = sequence[i];
+        }
+
+        // Log the calculated seek time to the console
+        console.log("Seek time: " + seekTime + " ms");
+
+        // Update the seek time display
+        document.getElementById("seek-time").innerHTML = "<strong>Total overhead movement:</strong> " + seekTime ;
+        document.getElementById("sequence").innerHTML = "<strong>Seek Sequence:</strong> " + sequenceOrder.slice(1).join(", ");
+
+        plotSequence(sequenceOrder,max);
+    }
+    
+    if (alg === "sstf") {
+        var sequence = inp.split(" ").map(Number);
+        var head = parseInt(ini);
+        var seekTime = 0;
+        var sequenceOrder = []; // Store the sequence order
+        sequenceOrder.push(head);
+        // Convert the sequence array into a Set for easier manipulation
+        var remainingCylinders = new Set(sequence);
+        var max=parseInt(final);
+        while (remainingCylinders.size > 0) {
+            var minDistance = Infinity;
+            var nextCylinder;
+
+            // Find the closest cylinder to the current head position
+            for (var cylinder of remainingCylinders) {
+                var distance = Math.abs(head - cylinder);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nextCylinder = cylinder;
+                }
+            }
+
+            // Update seek time and move head to the next cylinder
+            seekTime += minDistance;
+            head = nextCylinder;
+
+            // Remove the visited cylinder from the remaining cylinders
+            remainingCylinders.delete(nextCylinder);
+
+            // Store the visited cylinder in sequenceOrder array
+            sequenceOrder.push(nextCylinder);
+        }
+
+        document.getElementById("seek-time").innerHTML = "<strong>Total overhead movement:</strong> " + seekTime ;
+        document.getElementById("sequence").innerHTML = "<strong>Seek Sequence:</strong> " + sequenceOrder.slice(1).join(", ");
+
+        plotSequence(sequenceOrder,max);
+    }
+    if (alg === "scan") {
+        var arr = inp.split(" ").map(Number); // Convert input string to an array of integers
+        var head = parseInt(ini);
+        var direction = dir;
+
+        var seekCount = 0;
+        var distance, curTrack;
+        var left = [];
+        var right = [];
+        var seekSequence = [];
+        seekSequence.push(head);
+        var diskSize=parseInt(final)
+        // Appending end values which have to be visited
+        // before reversing the direction
+        if (direction === "left")
+            left.push(0);
+        else if (direction === "right")
+            right.push(diskSize - 1);
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < head)
+                left.push(arr[i]);
+            if (arr[i] > head)
+                right.push(arr[i]);
+        }
+
+        // Sorting left and right arrays
+        left.sort((a, b) => b - a);
+        right.sort((a, b) => a - b);
+
+        // Run the loop two times,
+        // scanning right and left of the head
+        let run = 2;
+        while (run--) {
+            if (direction === "left") {
+                for (let i = 0; i < left.length; i++) {
+                    curTrack = left[i];
+
+                    // Appending current track to seek sequence
+                    seekSequence.push(curTrack);
+
+                    
+                    distance = Math.abs(curTrack - head);
+
+                
+                    seekCount += distance;
+
+                    
+                    head = curTrack;
+                }
+                direction = "right";
+            } else if (direction === "right") {
+                for (let i = 0; i < right.length; i++) {
+                    curTrack = right[i];
+
+                    
+                    seekSequence.push(curTrack);
+
+                   
+                    distance = Math.abs(curTrack - head);
+
+                  
+                    seekCount += distance;
+
+                   
+                    head = curTrack;
+                }
+                direction = "left";
+            }
+        }
+
+        document.getElementById("seek-time").innerHTML = "<strong>Total overhead movement:</strong> " + seekCount ;
+        document.getElementById("sequence").innerHTML = "<strong>Seek Sequence:</strong> " + seekSequence.slice(1).join(", ");
+
+        plotSequence(seekSequence,diskSize-1);
+    }
+    if (alg === "c-scan") {
+        var arr = inp.split(" ").map(Number); 
+        var head = parseInt(ini);
+        var diskSize = parseInt(final); 
+        var direction = dir;
+
+        var seekCount = 0;
+        var distance, curTrack;
+        var left = [];
+        var right = [];
+        var seekSequence = [];
+        seekSequence.push(head);
+        
+        left.push(0);
+        right.push(diskSize - 1);
+
+        
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < head)
+                left.push(arr[i]);
+            if (arr[i] > head)
+                right.push(arr[i]);
+        }
+
+        
+        left.sort((a, b) => a - b);
+        right.sort((a, b) => a - b);
+
+
+        if (direction === "left") {
+            
+            for (let i = left.length - 1; i >= 0; i--) {
+                curTrack = left[i];
+
+                
+                seekSequence.push(curTrack);
+
+                
+                distance = Math.abs(curTrack - head);
+
+                
+                seekCount += distance;
+
+                
+                head = curTrack;
+            }
+
+            
+            head = diskSize - 1;
+
+            
+            seekCount += (diskSize - 1);
+
+            
+            for (let i = right.length-1; i >=0; i--) {
+                curTrack = right[i];
+
+              
+                seekSequence.push(curTrack);
+
+              
+                distance = Math.abs(curTrack - head);
+
+                
+                seekCount += distance;
+
+                
+                head = curTrack;
+            }
+        } 
+        else if (direction === "right") {
+            
+            for (let i = 0; i < right.length; i++) {
+                curTrack = right[i];
+
+                seekSequence.push(curTrack);
+
+                
+                distance = Math.abs(curTrack - head);
+
+                
+                seekCount += distance;
+
+                
+                head = curTrack;
+            }
+
+            
+            head = 0;
+
+            
+            seekCount += (diskSize - 1);
+
+            
+            for (let i = 0; i < left.length; i++) {
+                curTrack = left[i];
+
+                
+                seekSequence.push(curTrack);
+
+                
+                distance = Math.abs(curTrack - head);
+
+                
+                seekCount += distance;
+
+                
+                head = curTrack;
+            }
+        }
+
+   
+        document.getElementById("seek-time").innerHTML = "<strong>Total overhead movement:</strong> " + seekCount;
+        document.getElementById("sequence").innerHTML = "<strong>Seek Sequence:</strong> " + seekSequence.slice(1).join(", ");
+
+        plotSequence(seekSequence,diskSize-1);
+    }
+    if (alg === "look") {
+        var arr = inp.split(" ").map(Number); 
+        var head = parseInt(ini);
+        var direction = dir;
+
+        var seekCount = 0;
+        var distance, curTrack;
+        var left = [];
+        var right = [];
+        var seekSequence = [];
+        var max=parseInt(final);
+        seekSequence.push(head);
+        
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < head)
+                left.push(arr[i]);
+            if (arr[i] > head)
+                right.push(arr[i]);
+        }
+
+        
+        left.sort((a, b) => b - a);
+        right.sort((a, b) => a - b);
+
+        
+        let run = 2;
+        while (run--) {
+            if (direction === "left") {
+                for (let i = 0; i <left.length; i++) {
+                    curTrack = left[i];
+
+                    
+                    seekSequence.push(curTrack);
+
+                    
+                    distance = Math.abs(curTrack - head);
+
+                    
+                    seekCount += distance;
+
+                    head = curTrack;
+                }
+                
+                direction = "right";
+            } else if (direction === "right") {
+                for (let i = 0; i < right.length; i++) {
+                    curTrack = right[i];
+                    
+                    seekSequence.push(curTrack);
+
+                    
+                    distance = Math.abs(curTrack - head);
+
+                    
+                    seekCount += distance;
+
+                    
+                    head = curTrack;
+                }
+                
+                direction = "left";
+            }
+        }
+
+        
+        console.log("Total number of seek operations =", seekCount);
+        console.log("Seek Sequence is:");
+        console.log(seekSequence);
+
+        
+        document.getElementById("seek-time").innerHTML = "<strong>Total overhead movement:</strong> " + seekCount;
+        document.getElementById("sequence").innerHTML = "<strong>Seek Sequence:</strong> " + seekSequence.slice(1).join(", ");
+
+        plotSequence(seekSequence,max);
+    }
+    if (alg === "c-look") {
+        var arr = inp.split(" ").map(Number); 
+        var head = parseInt(ini);
+        var direction = dir;
+        var max=parseInt(final);
+        var seekCount = 0;
+        var distance, curTrack;
+        var left = [];
+        var right = [];
+        var seekSequence = [];
+        seekSequence.push(head);
+        
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < head)
+                left.push(arr[i]);
+            if (arr[i] > head)
+                right.push(arr[i]);
+        }
+
+        
+        left.sort((a, b) => a - b);
+        right.sort((a, b) => a - b);
+
+       
+        if (direction === "left") {
+            for (let i = left.length-1; i >=0; i--) {
+                curTrack = left[i];
+                seekSequence.push(curTrack);
+                distance = Math.abs(curTrack - head);
+                seekCount += distance;
+                head = curTrack;
+            }
+            for (let i = right.length-1; i>=0; i--) {
+                curTrack = right[i];
+                seekSequence.push(curTrack);
+                distance = Math.abs(curTrack - head);
+                seekCount += distance;
+                head = curTrack;
+            }
+        } else if (direction === "right") {
+            for (let i = 0; i < right.length; i++) {
+                curTrack = right[i];
+                seekSequence.push(curTrack);
+                distance = Math.abs(curTrack - head);
+                seekCount += distance;
+                head = curTrack;
+            }
+            for (let i = 0; i < left.length; i++) {
+                curTrack = left[i];
+                seekSequence.push(curTrack);
+                distance = Math.abs(curTrack - head);
+                seekCount += distance;
+                head = curTrack;
+            }
+        }
+
+        
+        console.log("Total number of seek operations =", seekCount);
+        console.log("Seek Sequence is:", seekSequence);
+
+        
+        document.getElementById("seek-time").innerHTML = "<strong>Total overhead movement:</strong> " + seekCount;
+        document.getElementById("sequence").innerHTML = "<strong>Seek Sequence:</strong> " + seekSequence.slice(1).join(", ");
+
+        plotSequence(seekSequence,max);
+    }
+    
+
+
+    
+}
+
+    
+    function plotSequence(sequence,max) {
+        
+        var x = sequence; 
+        var y = Array.from({length: sequence.length}, (_, i) => sequence.length - i); 
+
+
+            var trace = {
+                x: x,
+                y: y,
+                mode:'lines+markers',
+                marker: {
+                    size: 10
+                },
+                line: {
+                    shape: 'linear',
+                    color: 'blue'
+                },
+                type: 'scatter'
+            };
+        
+            var layout = {
+                
+                showlegend: false,
+                xaxis: {
+                    title: {
+                    text: 'Seeks',
+                    font: { 
+                        size: 20
+                    }
+                    },          
+                    tickvals: [0, ...x, max], 
+                    tickmode: 'array',
+                    showline:true,
+                    side: 'top', 
+                    range :[0,max],
+                    showarrow:true
+                },
+                yaxis: {
+                    title: '',
+                    showline: false, 
+                    range: [0, Math.max(...y) + 1], 
+                    autorange: false, 
+                    showticklabels: false,
+                    showarrow:true
+                },
+                plot_bgcolor: 'white',
+                
+                showarrow: true ,
+                margin: { 
+                    t: 20,
+                    l: 20, 
+                    b: 20 
+                },
+                
+                margin: { 
+                    t: 50, 
+                    l: 20, 
+                    b: 20, 
+                    r: 20 
+                },
+           
+                shapes: [
+                    {
+                        type: 'line',
+                        x0: 0,
+                        y0: Math.max(...y) + 1,
+                        x1: max,
+                        y1: Math.max(...y) + 1,
+                        line: {
+                            color: 'black',
+                            width: 1
+                        }
+                    },
+                    {
+                        type: 'line',
+                        x0: 0,
+                        y0: 0,
+                        x1: 0,
+                        y1: Math.max(...y) + 1,
+                        line: {
+                            color: 'black',
+                            width: 1
+                        }
+                    },
+                    {
+                        type: 'line',
+                        x0: 0,
+                        y0: 0,
+                        x1: max,
+                        y1: 0,
+                        line: {
+                            color: 'black',
+                            width: 1
+                        }
+                    },
+                    {
+                        type: 'line',
+                        x0: max,
+                        y0: 0,
+                        x1: max,
+                        y1: Math.max(...y) + 1,
+                        line: {
+                            color: 'black',
+                            width: 1
+                        }
+                    }
+                ]
+            };
+        
+            var data = [trace];
+        
+            Plotly.newPlot('graph_area', data, layout);
+                    document.getElementById("graph_area").style.visibility = "visible";
+        }
+
+    </script>
+            
+    
+    
+</body>
+</html>
