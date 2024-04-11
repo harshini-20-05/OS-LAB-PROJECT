@@ -5,87 +5,191 @@
     <title>Dining Philosopher</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> <!-- <link rel="stylesheet" href="home.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> <link rel="stylesheet" href="home.css"> -->
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+	<link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-    <div class="container-fluid"> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"> <span class="navbar-toggler-icon"></span> </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"> <a class="nav-link dropdown-toggle btn btn-outline-warning btn-lg btn-radius" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Classic Problems </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="../Syncronization/prod.html">Producer Consumer Problem</a> <a class="dropdown-item" href="../Syncronization/dining.html">Dining Philospher Problem</a> <a class="dropdown-item" href="../Syncronization/writerreader.html">Reader Writer Problem</a> <a class="dropdown-item" href="../Syncronization/sleeping.html">Sleeping Barber Problem</a> </div>
-                </li>
-                <li class="nav-item"> <a class="btn btn-outline-warning btn-lg btn-radius" style="color: white" href="../Syncronization/wiki.html" href="javascript:void(0) ">Click here to know more</a></li>
-                <li class="nav-item"> <a class="btn btn-outline-warning btn-lg btn-radius" style="color: white;" href="javascript:void(0) ">Team Members</a> </li>
-                <li class="nav-item"> <a class="nav-link dropdown-toggle btn btn-outline-warning btn-lg btn-radius" style="color: white;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Concepts </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="../Scheduling/index.html">Process Scheduling</a> <a class="dropdown-item" href="../Deadlock/index.html">Deadlocks</a> <a class="dropdown-item" href="../disk/disk_scheduling.html">Disc Scheduling</a> <a class="dropdown-item" href="../Syncronization/index.html">Process Synchronization</a> <a class="dropdown-item" href="../memory/index.html">MFT and MVT</a> <a class="dropdown-item" href="../OS-final/index.html">Non-Contiguous Memory Management</a> <a class="dropdown-item" href="../file-allocation/index_page.html">File Allocation</a> </div>
-                </li>
-            </ul> <button type="button" class="btn btn-outline-success btn-lg btn-radius " onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255);"> Back to Home </button>
+<body class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]">
+
+
+
+
+
+
+
+
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="../index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            class="h-8"
+            alt="Flowbite Logo"
+          />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            >Home</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="../about.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >About</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="../algorithms.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Algorithms</a
+              >
+            </li>
+          </ul>
         </div>
-    </div>
-</nav> <br>
-<h1 style="margin-top: 5%; background-color:#c6e1e3;color:#4B0082;text-align:center;"> <b>Dining Philosopher Problem</b> </h1> <button type="button" , class="btn btn-secondary" , onclick="initiate()" , style="height:70px;width:300px;position:absolute;margin:10px;left:10%;font-size:25px">Next!</button> <button type="button" , id="num" , name="num" , class="btn btn-secondary" , style="height:70px;width:300px;position:absolute;margin:10px;left:70%;font-size:25px">Number generated : </button> <button type="button" , id="table" , name="table" , style="height:435px;width:435px;position:absolute;top:50%;left:35%;border-radius:435px;border:solid 4px black;background-color:#6600ff"> </button> <!-- <img src="food.jpg" alt="" style="position:absolute;width:70px;height:70px;"> -->
+      </div>
+    </nav> 
+
+<div class="h-24 bg-gradient-to-r  from-teal-400 to-cyan-600 flex justify-center items-center">
+    <div class="text-center">
+			<h1 class="text-5xl">Dining Philosopher</h1>	
+	</div>
+</div>
+
+
+<button type="button" , class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full mr-4" , onclick="initiate()" , style="height:70px;width:300px;position:absolute;margin:10px;left:70%;top:60%;font-size:25px">Next!</button> 
+<button type="button" , id="num" , name="num" , class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full mr-4" , style="height:70px;width:300px;position:absolute;margin:10px;left:50%;top:60%;font-size:25px">Philosopher : </button> 
+<button type="button" , id="table" , name="table" , style="height:435px;width:435px;position:absolute;top:45%;left:5%;border-radius:435px;border:solid 4px black;background-color:#3663a5"> </button> 
+<a href="./wiki.html">
+	<button type="button" , class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full mr-4" , style="height:70px;width:300px;position:absolute;margin:10px;left:61%;top:70%;font-size:25px">Learn more <span>&rArr;</span></button> 
+</a>
 <p id="hungry1" style="position:absolute;top:60%;right:23%; font-size: 25px"></p>
 <p id="eating1" style="position:absolute;top:60%;right:3%; font-size: 25px"></p>
-<div style="position:absolute;top:50%;left:70%">
-    <table style="width:100%;padding:2px;">
-        <tr style="background-color: black; color:white;	">
-            <th width="120px" height="50px" style="text-align: center;">Philosopher </th>
-            <th width="120px" height="50px" style="text-align: center;">Thinking</th>
-            <th width="120px" height="50px" style="text-align: center;">Hungry</th>
-            <th width="120px" height="50px" style="text-align: center;">Eating </th>
-        </tr>
-        <tr style="background-color: #E0E0E0	">
-            <td width="120px" height="30px" style="text-align: center;">1</td>
-            <td width="120px" height="30px" style="text-align: center;" id="t11">Yes</td>
-            <td width="120px" height="30px" style="text-align: center;" id="t12">-</td>
-            <td width="120px" height="30px" style="text-align: center;" id="t13">-</td>
-        </tr>
-        <tr>
-            <td width="120px" height="30px" style="text-align: center;">2</td>
-            <td width="120px" height="30px" style="text-align: center;" id="t21">Yes</td>
-            <td width="120px" height="30px" style="text-align: center;" id="t22">-</td>
-            <td width="120px" height="30px" style="text-align: center;" id="t23">-</td>
-        </tr>
-        <tr style="background-color: #E0E0E0	">
-            <td width="120px" height="30px" style="text-align: center;">3</td>
-            <td id="t31" width="120px" height="30px" style="text-align: center;">Yes</td>
-            <td id="t32" width="120px" height="30px" style="text-align: center;">-</td>
-            <td id="t33" width="120px" height="30px" style="text-align: center;">-</td>
-        </tr>
-        <tr>
-            <td width="120px" height="30px" style="text-align: center;">4</td>
-            <td id="t41" width="120px" height="30px" style="text-align: center;">Yes</td>
-            <td id="t42" width="120px" height="30px" style="text-align: center;">-</td>
-            <td id="t43" width="120px" height="30px" style="text-align: center;">-</td>
-        </tr>
-        <tr style="background-color: #E0E0E0	">
-            <td width="120px" height="30px" style="text-align: center;">5</td>
-            <td id="t51" width="120px" height="30px" style="text-align: center;">Yes</td>
-            <td id="t52" width="120px" height="30px" style="text-align: center;">-</td>
-            <td id="t53" width="120px" height="30px" style="text-align: center;">-</td>
-        </tr>
-    </table>
+
+<p style="position:absolute;top:32%;left:11%; ">Philosopher 1</p>
+<p style="position:absolute;top:43%;left:26.5%;">Philosopher 2</p>
+<p style="position:absolute;top:96%;left:30%;">Philosopher 3</p>
+<p style="position:absolute;top:107%;left:8%;">Philosopher 4</p>
+<p style="position:absolute;top:57%;left:0%;">Philosopher 5</p> 
+<button type="button" , id="one" , name="one" , style="height:125px;width:125px;position:absolute;top:34%;left:10%;border-radius:125px;border:1px solid #000;  background-image: url('man.png')"> </button>
+ <button type="button" , id="five" , name="one" , style="height:125px;width:125px;position:absolute;top:60%;left:-1%;border-radius:125px;border:1px solid #000; background-image: url('man.png')"> </button> 
+ <button type="button" , id="two" , name="one" , style="height:125px;width:125px;position:absolute;top:45%;left:25.5%;border-radius:125px;border:1px solid #000;background-image: url('man.png')"> </button> 
+ <button type="button" , id="four" , name="one" , style="height:125px;width:125px;position:absolute;top:87%;left:7%;border-radius:125px;border:1px solid #000;background-image: url('man.png')"> </button>
+  <button type="button" , id="three" , name="one" , style="height:125px;width:125px;position:absolute;top:78%;left:25%;border-radius:125px;border:1px solid #000;background-image: url('man.png')"> </button> 
+<img src="noodle.png" style="position: absolute;height: 100px;width: 100px; top: 46%;left:12%;visibility: hidden;" id="bowl1">
+ <img src="noodle.png" style="position: absolute;height: 100px;width: 100px; top: 61%;left:6.6%;visibility: hidden;" id="bowl5"> 
+ <img src="noodle.png" style="position: absolute;height: 100px;width: 100px; top: 53%;left:21%;visibility: hidden;" id="bowl2"> 
+ <img src="noodle.png" style="position: absolute;height: 100px;width: 100px; top: 77%;left:11%;visibility: hidden;" id="bowl4">
+  <img src="noodle.png" style="position: absolute;height: 100px;width: 100px; top: 72%;left:46%;visibility: hidden;" id="bowl3">
+   <button type="button" , id="first" , name="one" , style="height:50px;width:50px;position:absolute;top:54%;left:8%;border-radius:50px;border:2px solid #000;background-image: url('chopstick.png') ; background-repeat: no-repeat;"> </button>
+    <button type="button" , id="second" , name="one" , style="height:50px;width:50px;position:absolute;top:49%;left:19%;border-radius:50px;border:2px solid #333;background-image: url('chopstick.png') ; background-repeat: no-repeat;"> </button>
+	 <button type="button" , id="third" , name="one" , style="height:50px;width:50px;position:absolute;top:65%;left:25%;border-radius:50px;border:2px solid #000;background-image: url('chopstick.png') ; background-repeat: no-repeat;"></button>
+	  <button type="button" , id="fifth" , name="one" , style="height:50px;width:50px;position:absolute;top:74%;left:8%;border-radius:50px;border:2px solid #000;background-image: url('chopstick.png') ; background-repeat: no-repeat;"> </button>
+	   <button type="button" , id="fourth" , name="one" , style="height:50px;width:50px;position:absolute;top:83%;left:18%;border-radius:50px;border:2px solid #000;background-image: url('chopstick.png') ; background-repeat: no-repeat;"> </button> 
+	   <img src="noodle.png" style="position: absolute;height: 100px;width: 100px; top: 61%;left:14.5%">
+
+
+
+<div style="margin-top: 700px;padding: 10px; padding-bottom: 50px;">
+    <table class="w-full border-collapse">
+    <tr class="bg-gradient-to-r from-cyan-400 to-blue-700 text-white">
+        <th class="w-1/4 py-2 text-center">Philosopher</th>
+        <th class="w-1/4 py-2 text-center">Thinking</th>
+        <th class="w-1/4 py-2 text-center">Hungry</th>
+        <th class="w-1/4 py-2 text-center">Eating</th>
+    </tr>
+    <tr class="bg-gray-200">
+        <td class="w-1/4 py-2 text-center">1</td>
+        <td class="w-1/4 py-2 text-center" id="t11">Yes</td>
+        <td class="w-1/4 py-2 text-center" id="t12">-</td>
+        <td class="w-1/4 py-2 text-center" id="t13">-</td>
+    </tr>
+    <tr class="bg-gray-300">
+        <td class="w-1/4 py-2 text-center">2</td>
+        <td class="w-1/4 py-2 text-center" id="t21">Yes</td>
+        <td class="w-1/4 py-2 text-center" id="t22">-</td>
+        <td class="w-1/4 py-2 text-center" id="t23">-</td>
+    </tr>
+    <tr class="bg-gray-200">
+        <td class="w-1/4 py-2 text-center">3</td>
+        <td class="w-1/4 py-2 text-center" id="t31">Yes</td>
+        <td class="w-1/4 py-2 text-center" id="t32">-</td>
+        <td class="w-1/4 py-2 text-center" id="t33">-</td>
+    </tr>
+    <tr class="bg-gray-300">
+        <td class="w-1/4 py-2 text-center">4</td>
+        <td class="w-1/4 py-2 text-center" id="t41">Yes</td>
+        <td class="w-1/4 py-2 text-center" id="t42">-</td>
+        <td class="w-1/4 py-2 text-center" id="t43">-</td>
+    </tr>
+    <tr class="bg-gray-200">
+        <td class="w-1/4 py-2 text-center">5</td>
+        <td class="w-1/4 py-2 text-center" id="t51">Yes</td>
+        <td class="w-1/4 py-2 text-center" id="t52">-</td>
+        <td class="w-1/4 py-2 text-center" id="t53">-</td>
+    </tr>
+</table>
+
 </div>
-<p style="position:absolute;top:37%;left:41%; ">Philosopher 1</p>
-<p style="position:absolute;top:48%;left:56.5%;">Philosopher 2</p>
-<p style="position:absolute;top:101%;left:60%;">Philosopher 3</p>
-<p style="position:absolute;top:112%;left:38%;">Philosopher 4</p>
-<p style="position:absolute;top:62%;left:29%;">Philosopher 5</p> <button type="button" , id="one" , name="one" , style="height:125px;width:125px;position:absolute;top:39%;left:40%;border-radius:125px;border:1px solid #000;  background-image: url('http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/128/man-icon.png')"> </button> <button type="button" , id="five" , name="one" , style="height:125px;width:125px;position:absolute;top:65%;left:29%;border-radius:125px;border:1px solid #000; background-image: url('http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/128/man-icon.png')"> </button> <button type="button" , id="two" , name="one" , style="height:125px;width:125px;position:absolute;top:50%;left:55.5%;border-radius:125px;border:1px solid #000;background-image: url('http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/128/man-icon.png')"> </button> <button type="button" , id="four" , name="one" , style="height:125px;width:125px;position:absolute;top:92%;left:37%;border-radius:125px;border:1px solid #000;background-image: url('http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/128/man-icon.png')"> </button> <button type="button" , id="three" , name="one" , style="height:125px;width:125px;position:absolute;top:83%;left:55%;border-radius:125px;border:1px solid #000;background-image: url('http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/128/man-icon.png')"> </button> <img src="http://www.pngall.com/wp-content/uploads/2016/03/Food.png" style="position: absolute;height: 100px;width: 100px; top: 51%;left:42%;visibility: hidden;" id="bowl1"> <img src="http://www.pngall.com/wp-content/uploads/2016/03/Food.png" style="position: absolute;height: 100px;width: 100px; top: 66%;left:36.6%;visibility: hidden;" id="bowl5"> <img src="http://www.pngall.com/wp-content/uploads/2016/03/Food.png" style="position: absolute;height: 100px;width: 100px; top: 58%;left:51%;visibility: hidden;" id="bowl2"> <img src="http://www.pngall.com/wp-content/uploads/2016/03/Food.png" style="position: absolute;height: 100px;width: 100px; top: 82%;left:41%;visibility: hidden;" id="bowl4"> <img src="http://www.pngall.com/wp-content/uploads/2016/03/Food.png" style="position: absolute;height: 100px;width: 100px; top: 77%;left:51%;visibility: hidden;" id="bowl3"> <button type="button" , id="first" , name="one" , style="height:50px;width:50px;position:absolute;top:59%;left:38%;border-radius:50px;border:2px solid #000;background-image: url('http://icons.iconarchive.com/icons/icons8/windows-8/32/Food-Fork-icon.png') ; background-repeat: no-repeat;"> </button> <button type="button" , id="second" , name="one" , style="height:50px;width:50px;position:absolute;top:54%;left:49%;border-radius:50px;border:2px solid #333;background-image: url('http://icons.iconarchive.com/icons/icons8/windows-8/32/Food-Fork-icon.png') ; background-repeat: no-repeat;"> </button> <button type="button" , id="third" , name="one" , style="height:50px;width:50px;position:absolute;top:70%;left:55%;border-radius:50px;border:2px solid #000;background-image: url('http://icons.iconarchive.com/icons/icons8/windows-8/32/Food-Fork-icon.png') ; background-repeat: no-repeat;"></button> <button type="button" , id="fifth" , name="one" , style="height:50px;width:50px;position:absolute;top:79%;left:38%;border-radius:50px;border:2px solid #000;background-image: url('http://icons.iconarchive.com/icons/icons8/windows-8/32/Food-Fork-icon.png') ; background-repeat: no-repeat;"> </button> <button type="button" , id="fourth" , name="one" , style="height:50px;width:50px;position:absolute;top:88%;left:48%;border-radius:50px;border:2px solid #000;background-image: url('http://icons.iconarchive.com/icons/icons8/windows-8/32/Food-Fork-icon.png') ; background-repeat: no-repeat;"> </button> <img src="http://www.pngall.com/wp-content/uploads/2016/03/Food.png" style="position: absolute;height: 100px;width: 100px; top: 66%;left:44.5%">
+
+
 <script type="text/javascript">
     var phils= [0,0,0,0,0], forks=[0,0,0,0,0];
          
@@ -406,7 +510,7 @@
     
     		          if(forks[0]==1)
     		          {
-    		            document.getElementById("first").style.backgroundColor = 'FA0000';
+    		            document.getElementById("first").style.backgroundColor = '#FA0000';
     		          }
     		          if(forks[1]==1)
     		          {
