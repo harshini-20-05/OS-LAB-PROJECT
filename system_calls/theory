@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Calls</title>
+  
+  <style>
+   
+    body {
+      background-color: lightblue;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #003366;
+      font-weight: bold;
+      color: white;
+      padding: 20px 0;
+    }
+
+    #header-nav .navbar-brand h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar-toggle {
+      margin: 8px 15px 8px 0;
+    }
+
+    #nav-list li {
+      margin-right: 20px;
+    }
+
+    #nav-list li a {
+      color: white;
+      font-size: 16px;
+    }
+
+    .sysinfo {
+      padding: 30px;
+    }
+
+    .hd {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #intro,
+    #terms,
+    #why {
+      margin-bottom: 30px;
+      font-size: 22px;
+    }
+
+    #intro img,
+    #terms img {
+      margin-right: 20px;
+      /* float: left; */
+      display: block;
+      margin: auto;
+    }
+
+    #bold {
+      font-weight: bold;
+    }
+
+    .cont {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    #syscall {
+      text-decoration: none;
+      color: #003366;
+    }
+
+    .heady {
+      font-size: 22px;
+      /* font-weight: bold; */
+      margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 22px;
+      margin-top: 0;
+    }
+
+    .description::before {
+      content: "-";
+      margin-right: 5px;
+    }
+
+    hr {
+      margin: 10px 0;
+    }
+    #intro img {
+        display: block;
+        
+    }
+    /* Footer Styling */
+    footer {
+      background-color: navy;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: #fff; /* Set link color to white */
+    }
+
+    footer a:hover {
+      color: #ccc; /* Change link color on hover */
+    }
+
+  </style>
+</head>
+
+<body>
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+              <div class="navbar-brand">
+                <a href="#" style="color: white; text-align: center;text-decoration: none;"><h1>System Calls</h1></a>
+              </div>
+            </div>
+            <div class="navbar-right">
+              
+              <div style="display: inline-block; padding-right: 10px;">
+                <a href="Simulate.html" style="color: white;text-decoration: none;">
+                  <strong>SIMULATE</strong>
+                </a>
+              </div>
+              <div style="display: inline-block;">
+                <a href="#" style="color: white;text-decoration: none;">
+                  <strong>ABOUT</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      
+      
+      
+  <div class="sysinfo">
+    <p class="hd" style="text-align: center; font-weight: bold;">What are System Calls?</p>
+    <div id="intro" >
+    <div style="width: 100%;">
+      <img id="sysimg" src="https://example.com/system_calls_image.jpg" alt="system calls image">
+      </div>
+      <br>
+      <p>
+      System calls provide an interface between the operating system and the user programs. They are used by applications to request services from the operating system, such as input/output operations, process control, and file management. System calls are essential for the functioning of an operating system.
+    </p>
+    </div>
+    <div id="terms">
+      <img id="sysimg2" src="https://example.com/system_calls_terminology.jpg" alt="system calls terminology image">
+      <span id="hd2"><h4>Some important terminologies :</h4></span><br><br>
+      <b id="bold">File System Calls</b> - <br> File system calls are used for file-related operations such as opening, reading, writing, and closing files.<br>
+      <b id="bold">Process Control Calls</b> - <br> Process control calls are used for process-related operations such as creating, terminating, and suspending processes.<br>
+      <b id="bold">Memory Management Calls</b> - <br> Memory management calls are used for memory-related operations such as allocating and freeing memory.<br>
+      <b id="bold">Network Calls</b> - <br> Network calls are used for network-related operations such as establishing connections and sending/receiving data over the network.
+    </div>
+    <p class="hd" style="font-weight: bold;">Why do we need System Calls?</p>
+    <div id="why">
+      System calls are necessary because:
+      <ul>
+        <li>They provide an interface for applications to interact with the operating system and access its services.</li>
+        <li>They abstract the complexities of hardware and provide a standardized way for programs to perform various operations.</li>
+        <li>They ensure security and resource management by enforcing access control policies and managing system resources efficiently.</li>
+      </ul>
+    </div>
+    <p class="hd">Various System Calls</p>
+    <div class="cont">
+      <div>
+        <a id="syscall" href="Simulate.html">
+          <h2 class="heady">open()<br></h2>
+          <hr style="width: 30%; border-width: 2px;">
+        </a><br>
+        <p class="description">The open() system call is used to open or create a file for reading or writing.</p>
+      </div>
+      <div>
+        <a id="syscall" href="Simulate.html">
+          <h2 class="heady">read()<br></h2>
+          <hr style="width: 30%; border-width: 2px;">
+        </a><br>
+        <p class="description">The read() system call is used to read data from an open file descriptor into a buffer.</p>
+      </div>
+      <div>
+        <a id="syscall" href="Simulate.html">
+          <h2 class="heady">write()<br></h2>
+          <hr style="width: 30%; border-width: 2px;">
+        </a><br>
+        <p class="description">The write() system call is used to write data from a buffer to an open
