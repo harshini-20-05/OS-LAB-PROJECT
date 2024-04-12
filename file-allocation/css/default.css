@@ -23,6 +23,7 @@ body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	color: #000;
 	padding: 10px;
+	background: lightblue; /* Changed background color */
 }
 
 a {
@@ -183,8 +184,7 @@ button:hover {
 
 }
 
-
-//Rahul Addition
+/* Rahul's Additions */
 
 .file_alloc hover{
 
