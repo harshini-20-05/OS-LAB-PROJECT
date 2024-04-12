@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>LRU Approximation Algorithms Theory</title>
+  
+  <style>
+   
+    body {
+      background-color: lightblue;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #003366;
+      font-weight: bold;
+      color: white;
+      padding: 20px 0;
+    }
+
+    #header-nav .navbar-brand h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar-toggle {
+      margin: 8px 15px 8px 0;
+    }
+
+    #nav-list li {
+      margin-right: 20px;
+    }
+
+    #nav-list li a {
+      color: white;
+      font-size: 16px;
+    }
+
+    .diskinfo {
+      padding: 30px;
+    }
+
+    .hd {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #intro,
+    #terms,
+    #why {
+      margin-bottom: 30px;
+      font-size: 22px;
+    }
+
+     #approxing{
+      margin-right: 20px;
+      /* float: left; */
+      display: block;
+      margin: auto; /* Center align image */
+      max-width: 65%; /* Set maximum width */
+      height: auto; /* Maintain aspect ratio */
+
+    }
+
+    #bold {
+      font-weight: bold;
+    }
+
+    .cont {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    #algo {
+      text-decoration: none;
+      color: #003366;
+    }
+
+    .heady {
+      font-size: 22px;
+      /* font-weight: bold; */
+      margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 22px;
+      margin-top: 0;
+    }
+
+    .description::before {
+      content: "-";
+      margin-right: 5px;
+    }
+
+    hr {
+      margin: 10px 0;
+    }
+    #intro img {
+        display: block;
+        
+    }
+    /* Footer Styling */
+    footer {
+      background-color: navy;
+      color: white;
+      padding: 20px 0;
+    }
+
+    footer a {
+      color: #fff; /* Set link color to white */
+    }
+
+    footer a:hover {
+      color: #ccc; /* Change link color on hover */
+    }
+
+  </style>
+</head>
+
+<body>
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+              <div class="navbar-brand">
+                <a href="#" style="color: white; text-align: center;text-decoration: none;"><h1>LRU Approximation Algorithms</h1></a>
+              </div>
+            </div>
+            <div class="navbar-right">
+              
+              <div style="display: inline-block; padding-right: 10px;">
+                <a href="Simulate.html" style="color: white;text-decoration: none;">
+                  <strong>SIMULATE</strong>
+                </a>
+              </div>
+              <div style="display: inline-block;">
+                <a href="#" style="color: white;text-decoration: none;">
+                  <strong>ABOUT</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      
+  
+  <div class="diskinfo">
+    <p class="hd" style="font-weight: bold;">Why do we need LRU Approximation Algorithms?</p>
+    <div id="why">
+      Not many computer systems provide sufficient hardware support for true LRU
+page replacement. In fact, some systems provide no hardware support, and
+other page-replacement algorithms (such as a FIFO algorithm) must be used.
+Many systems provide some help, however, in the form of a reference bit. The
+reference bit for a page is set by the hardware whenever that page is referenced
+(either a read or a write to any byte in the page). Reference bits are associated
+with each entry in the page table.
+Initially, all bits are cleared (to 0) by the operating system. As a process
+executes, the bit associated with each page referenced is set (to 1) by the
+hardware. After some time, we can determine which pages have been used and
+which have not been used by examining the reference bits, although we do not
+know the order of use. This information is the basis for many page-replacement
+algorithms that approximate LRU replacement.
+    </div>
+    <br>
+      <img id="approxing" src="approx.png" alt="disk image">
+    <p class="hd">Various Disk Scheduling Algorithms</p>
+    <div class="cont">
+      <div>
+        <a id="algo" href="Simulate.html">
+          <h2 class="heady">Additional Reference Bit<br></h2>
+          <hr style="width: 30%; border-width: 2px;">
+        </a><br>
+        <p class="description">We can gain additional ordering information by recording the reference bits at
+          regular intervals. We can keep an 8-bit byte for each page in a table in memory.
+          At regular intervals (say, every 100 milliseconds), a timer interrupt transfers
+          control to the operating system. The operating system shifts the reference bit
+          for each page into the high-order bit of its 8-bit byte, shifting the other bits right
+          410 Chapter 10 Virtual Memory
+          by 1 bit and discarding the low-order bit. These 8-bit shift registers contain the
+          history of page use for the last eight time periods. If the shift register contains
+          00000000, for example, then the page has not been used for eight time periods.
+          A page that is used at least once in each period has a shift register value of
+          11111111. A page with a history register value of 11000100 has been used more
+          recently than one with a value of 01110111. If we interpret these 8-bit bytes as unsigned integers, the page with the lowest number is the LRU page, and it can
+          be replaced. Notice that the numbers are not guaranteed to be unique, however.
+          We can either replace (swap out) all pages with the smallest value or use the
+          FIFO method to choose among them.
+          The number of bits of history included in the shift register can be varied,
+          of course, and is selected (depending on the hardware available) to make the
+          updating as fast as possible. In the extreme case, the number can be reduced to
+          zero, leaving only the reference bit itself. This algorithm is called the secondchance page-replacement algorithm</p>
+      </div>
+      <div>
+        <a id="algo" href="Simulate.html">
+          <h2 class="heady">2nch Chance<br></h2>
+          <hr style="width: 30%; border-width: 2px;">
+        </a><br>
+        <p class="description">The basic algorithm of second-chance replacement is a FIFO replacement algorithm. When a page has been selected, however, we inspect its reference bit. If
+          the value is 0, we proceed to replace this page; but if the reference bit is set to
+          1, we give the page a second chance and move on to select the next FIFO page.
+          When a page gets a second chance, its reference bit is cleared, and its arrival
+          time is reset to the current time. Thus, a page that is given a second chance
+          will not be replaced until all other pages have been replaced (or given second
+          chances). In addition, if a page is used often enough to keep its reference bit
+          set, it will never be replaced.
+          One way to implement the second-chance algorithm (sometimes referred
+          to as the clock algorithm) is as a circular queue. A pointer (that is, a hand on
+          the clock) indicates which page is to be replaced next. When a frame is needed,
+          the pointer advances until it finds a page with a 0 reference bit. As it advances,
+          it clears the reference bits (Figure 10.17). Once a victim page is found, the page
+          is replaced, and the new page is inserted in the circular queue in that position.
+          Notice that, in the worst case, when all bits are set, the pointer cycles through
+          the whole queue, giving each page a second chance. It clears all the reference
+          bits before selecting the next page for replacement. Second-chance replacement
+          degenerates to FIFO replacement if all bits are set.</p>
+      </div>
+      <div class="heady">
+        <a id="algo" href="Simulate.html">
+          <h2 class="heady">Enhanced 2nd chance<br></h2>
+          <hr style="width: 30%; border-width: 2px;">
+        </a><br>
+        <p class="description">We can enhance the second-chance algorithm by considering the reference bit
+          and the modify bit (described in Section 10.4.1) as an ordered pair. With these
+          two bits, we have the following four possible classes:
+          <ol>
+          <li>  (0, 0) neither recently used nor modified—best page to replace
+          <li>  (0, 1) not recently used but modified—not quite as good, because the page
+           will need to be written out before replacement
+          <li>  (1, 0) recently used but clean—probably will be used again soon
+          <li>  (1, 1) recently used and modified—probably will be used again soon, and
+          </ol>
+the page will be need to be written out to secondary storage before it can
+be replaced
+Each page is in one of these four classes. When page replacement is called
+for, we use the same scheme as in the clock algorithm; but instead of examining
+whether the page to which we are pointing has the reference bit set to 1,
+we examine the class to which that page belongs. We replace the first page
+encountered in the lowest nonempty class. Notice that we may have to scan the
+circular queue several times before we find a page to be replaced. The major
+difference between this algorithm and the simpler clock algorithm is that here
+we give preference to those pages that have been modified in order to reduce
+the number of I/Os required.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <p>&copy; 2024 All rights reserved.</p>
+          <p>Content sourced from <a href="https://www.geeksforgeeks.org" target="_blank">GeeksforGeeks</a> and <a href="https://www.javasprint.com" target="_blank">JavaSprint</a>.</p>
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  
+  
+</body>
+
+</html>
+
