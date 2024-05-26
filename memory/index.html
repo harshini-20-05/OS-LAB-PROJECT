@@ -1,132 +1,204 @@
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.button {
-  border-radius: 8px;
-  background-color: #333456;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        color: blue;
+      }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+      .button {
+        border-radius: 8px;
+        background-color: rgb(53, 82, 226);
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+      .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
 
-.button:hover span {
-  padding-right: 25px;
-}
+      .button span:after {
+        content: "\00bb";
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
+      .button:hover span {
+        padding-right: 25px;
+      }
 
-.btn-row {
-    margin-top: 50px;
-    animation-name: FadeOut;
-    animation-duration: 5s;
-}
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
 
-@keyframes FadeOut {
-  0% {
-    /* position: absolute; */
-    opacity: 0;
-  }
+      .btn-row {
+        margin-top: 50px;
+        animation-name: FadeOut;
+        animation-duration: 5s;
+      }
 
-  75% {
-    /* position: absolute; */
-    opacity: 1;
-  }
+      @keyframes FadeOut {
+        0% {
+          /* position: absolute; */
+          opacity: 0;
+        }
 
-  100% {
-    opacity: 1;
-  }
-}
+        75% {
+          /* position: absolute; */
+          opacity: 1;
+        }
 
-.heading {
-  font-size: 60px;
-  text-align: center;
-  margin-top: 50px;
-  opacity: 1;
-  animation-name: FadeOut;
-  animation-duration: 5s;
-  color: #222831;
-}
+        100% {
+          opacity: 1;
+        }
+      }
 
-.choose {
-  font-size: 30px;
-  text-align: center;
-  margin-top: 90px;
-  opacity: 1;
-  animation-name: FadeOut;
-  animation-duration: 5s;
-  color: rgb(133, 133, 133);
-}
+      .heading {
+        font-size: 60px;
+        text-align: center;
+        margin-top: 50px;
+        opacity: 1;
+        animation-name: FadeOut;
+        animation-duration: 5s;
+        color: #222831;
+      }
 
-</style>
+      .choose {
+        font-size: 30px;
+        text-align: center;
+        margin-top: 90px;
+        opacity: 1;
+        animation-name: FadeOut;
+        animation-duration: 5s;
+        color: rgb(133, 133, 133);
+      }
+    </style>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+      integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+      integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+      integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+      integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
 
- <title>Memory Management</title>
+    <title>Memory Management</title>
+  </head>
 
-</head>
-
-<body>
-
-  <nav style="border-radius:0%" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mynavbar">
-       
-        <button type="button" class="btn btn-outline-success btn-lg btn-radius " 
-      onclick="window.location.href = '../index.html';" style="color: rgb(255, 255, 255);"> 
-        Back to Home
-        </button>
+  <body style="background-color: gray">
+    <div style="background-color: gray">
+      <nav
+        style="border-radius: 0%"
+        class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top"
+      >
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mynavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <button
+              type="button"
+              class="btn btn-outline-success btn-lg btn-radius"
+              onclick="window.location.href = '../index.html';"
+              style="color: rgb(255, 255, 255)"
+            >
+              Back to Home
+            </button>
+          </div>
         </div>
+      </nav>
+      <br /><br /><br />
+
+      <p class="heading" style="text-shadow: #000000; font-weight: bold">
+        Memory Management
+      </p>
+
+      <p class="text-white">Choose any one</p>
+
+      <div class="container btn-row">
+        <div class="row">
+          <div class="offset-md-2 col-md-3">
+            <div class="card">
+              <div class="card-header">Featured</div>
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </p>
+                <button
+                  class="button"
+                  onclick="window.location.href='./mft.html'"
+                >
+                  <span>MFT</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="margin-left: 5px">
+            <div class="card-header">Featured</div>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content.
+              </p>
+              <button
+                class="button mt-5"
+                onclick="window.location.href='./mvt_index.html'"
+              >
+                <span>MVT</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </nav>
-      <br><br><br>
-
-<p class="heading">Memory Management</p>
-
-<p class="choose">Choose any one</p>
-
-<div class="container btn-row">
-    <div class="row">
-        <div class="offset-md-2 col-md-3">
-          <button class="button" onclick="window.location.href='./mft.html'"><span>MFT</span></button>
-        </div>
-        <div class="col-md-3"></div>
-            <button class="button" onclick="window.location.href='./mvt_index.html'"><span>MVT</span></button>
-        </div>
-    </div>    
-</div>
-</body>
+  </body>
 </html>

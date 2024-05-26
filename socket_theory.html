@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Send Message</title>
+  </head>
+  <body>
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="./index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            class="h-8"
+            alt="Flowbite Logo"
+          />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            >Home</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="./about.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >About</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="./algorithms.html"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >Algorithms</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="h-24 bg-gradient-to-r from-teal-400 to-cyan-600 flex justify-center items-center"
+    >
+      <div class="text-center">
+        <h1 class="text-5xl text-stone-50">Socket Communication</h1>
+      </div>
+    </div>
+    <!-- Handshake Section -->
+    <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Handshake</h2>
+      <p class="text-gray-700">
+        The WebSocket protocol starts with an initial handshake between the
+        client and the server, which usually occurs over a standard HTTP
+        connection. During this handshake, the client sends an HTTP request with
+        a special Upgrade header indicating its desire to establish a WebSocket
+        connection. If the server supports WebSocket and approves the handshake,
+        it responds with an HTTP 101 status code (Switching Protocols),
+        indicating a successful upgrade to the WebSocket protocol. From this
+        point onwards, the connection transitions to full-duplex mode, allowing
+        both the client and server to send messages asynchronously.
+      </p>
+    </div>
+
+    <!-- Data Transfer Section -->
+    <div class="mt-6 p-6 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Data Transfer</h2>
+      <p class="text-gray-700">
+        After the handshake, the WebSocket connection is established, and both
+        the client and server can send messages to each other at any time
+        without waiting for a request. Messages can be sent as text or binary
+        data, and WebSocket frames encapsulate these messages. The protocol
+        supports various types of messages, including text frames, binary
+        frames, ping frames (used for keep-alive checks), and pong frames
+        (responses to ping frames).
+      </p>
+    </div>
+
+    <!-- Closing Connection Section -->
+    <div class="mt-6 p-6 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Closing the Connection</h2>
+      <p class="text-gray-700">
+        Either the client or server can initiate the closing of the WebSocket
+        connection by sending a special close frame. Upon receiving the close
+        frame, the receiving party acknowledges the request and sends its own
+        close frame, after which the connection is considered closed.
+      </p>
+    </div>
+
+    <!-- Advantages Section -->
+    <div class="mt-6 p-6 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">
+        Advantages of WebSocket Communication
+      </h2>
+      <ul class="list-disc text-gray-700 pl-6">
+        <li>
+          Low latency: WebSocket communication eliminates the overhead of
+          repeatedly establishing and tearing down connections for each
+          request-response cycle, resulting in lower latency.
+        </li>
+        <li>
+          Efficient: WebSocket communication uses a single, long-lived
+          connection for bidirectional communication, reducing the overhead of
+          multiple HTTP connections.
+        </li>
+        <li>
+          Full-duplex communication: Unlike HTTP, which follows a
+          request-response pattern, WebSocket allows for simultaneous data
+          transfer in both directions, enabling more interactive and real-time
+          applications.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

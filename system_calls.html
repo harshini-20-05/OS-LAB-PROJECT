@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>System Calls</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white py-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">System Calls</h1>
+        <nav>
+          <a href="#" class="text-lg font-medium mx-4 hover:underline">Home</a>
+          <a href="#" class="text-lg font-medium mx-4 hover:underline">About</a>
+          <a href="#" class="text-lg font-medium mx-4 hover:underline"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-8">
+      <!-- Introduction Section -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">What are System Calls?</h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <img
+            src="https://example.com/system_calls_image.jpg"
+            alt="System Calls Image"
+            class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-8"
+          />
+          <p class="text-lg">
+            System calls provide an interface between the operating system and
+            user programs. They are used by applications to request services
+            from the operating system, such as input/output operations, process
+            control, and file management. System calls are essential for the
+            functioning of an operating system.
+          </p>
+        </div>
+      </section>
+
+      <!-- Terminologies Section -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">
+          Important System Call Terminologies
+        </h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <img
+            src="https://example.com/system_calls_terminology.jpg"
+            alt="System Call Terminology Image"
+            class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-8"
+          />
+          <div class="md:w-2/3">
+            <p class="mb-4">
+              <span class="font-bold">File System Calls:</span> File system
+              calls are used for file-related operations such as opening,
+              reading, writing, and closing files.
+            </p>
+            <p class="mb-4">
+              <span class="font-bold">Process Control Calls:</span> Process
+              control calls are used for process-related operations such as
+              creating, terminating, and suspending processes.
+            </p>
+            <p class="mb-4">
+              <span class="font-bold">Memory Management Calls:</span> Memory
+              management calls are used for memory-related operations such as
+              allocating and freeing memory.
+            </p>
+            <p class="mb-4">
+              <span class="font-bold">Network Calls:</span> Network calls are
+              used for network-related operations such as establishing
+              connections and sending/receiving data over the network.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why System Calls Section -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Why do we need System Calls?</h2>
+        <ul class="list-disc list-inside text-lg">
+          <li>
+            They provide an interface for applications to interact with the
+            operating system and access its services.
+          </li>
+          <li>
+            They abstract the complexities of hardware and provide a
+            standardized way for programs to perform various operations.
+          </li>
+          <li>
+            They ensure security and resource management by enforcing access
+            control policies and managing system resources efficiently.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Various System Calls Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Various System Calls</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold mb-2">open()</h3>
+            <p class="text-lg">
+              The open() system call is used to open or create a file for
+              reading or writing.
+            </p>
+            <a href="#" class="text-blue-600 hover:underline mt-2"
+              >Learn more</a
+            >
+          </div>
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold mb-2">read()</h3>
+            <p class="text-lg">
+              The read() system call is used to read data from an open file
+              descriptor into a buffer.
+            </p>
+            <a href="#" class="text-blue-600 hover:underline mt-2"
+              >Learn more</a
+            >
+          </div>
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold mb-2">write()</h3>
+            <p class="text-lg">
+              The write() system call is used to write data from a buffer to an
+              open file.
+            </p>
+            <a href="#" class="text-blue-600 hover:underline mt-2"
+              >Learn more</a
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 System Calls. All rights reserved.</p>
+        <p>
+          Designed with <span class="text-red-500">&#10084;</span> by Your Name
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

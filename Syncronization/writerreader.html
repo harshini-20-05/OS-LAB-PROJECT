@@ -116,6 +116,7 @@
     </div><button type="button" , id="reader" , name="read" , class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 btn btn-secondary" onclick="reader()" , style="height:7%;width:10%;position:absolute;top:30%;left:35%;font-size:17px">Read the file </button> 
 <button type="button" , id="writer" , name="write" , class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 btn btn-secondary" onclick="writer()" , style="height:7%;width:13%;position:absolute;top:30%;right:35%;font-size:17px;">Write in the file </button> 
 <button type="button" , id="stop" , name="write" , class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 btn btn-outline-danger" onclick="stop()" , style="height:7%;width:10%;position:absolute;top:65%;left:72%;font-size:17px;border:solid 4px black;visibility: hidden;">Stop writing </button>
+<button type="button" , id="stop" , name="write" , class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 btn btn-outline-danger" onclick="stop_reader()" , style="height:7%;width:10%;position:absolute;top:65%;left:90%;font-size:17px;border:solid 4px black;visibility: hidden;">Stop Reader </button>
 <div>
     <form> <textarea id="textarea" , style="height:40%;width:43%;position:absolute;top:40%;left:28%;border:solid 4px black;font-size:20px" disabled="false"> </textarea> </form>
 </div>
@@ -149,7 +150,7 @@
 <button type = "button", id ="reader5", name = "read5", class = "btn btn-primary", style="height:5%;width:7%;position:absolute;top:80%;left:20%;font-size:17px">Reader5 </button>
 <button type = "button", id ="writer1", name = "write1", class = "btn btn-primary", style="height:7%;width:10%;position:absolute;top:60%;right:20%;font-size:17px">Writer: </button> -->
 <script>
-    var flag=2,count=99;k=0;
+    var flag=-1,count=99;k=0, n=-1;
        function writer()
        {
     
@@ -282,6 +283,19 @@
                     document.getElementById("stop").style.visibility = 'hidden';
     k=1;
     reader();
+       }
+
+       function stop_reader() {
+           count=99;
+           document.getElementById("read1").style.visibility = 'hidden';
+           document.getElementById("read2").style.visibility = 'hidden';
+           document.getElementById("read3").style.visibility = 'hidden';
+           document.getElementById("read4").style.visibility = 'hidden';
+
+            document.getElementById("textarea1").style.visibility = 'hidden';
+            document.getElementById("textarea2").style.visibility = 'hidden';
+            document.getElementById("textarea3").style.visibility = 'hidden';
+            document.getElementById("textarea4").style.visibility = 'hidden';
        }
     
 </script>
